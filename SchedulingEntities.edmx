@@ -1,0 +1,1492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SchedulingEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SchedulingEntitiesStoreContainer">
+          <EntitySet Name="DateFormat" EntityType="SchedulingEntities.Store.DateFormat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Setting" EntityType="SchedulingEntities.Store.Setting" store:Type="Tables" store:Schema="dbo" store:Name="Setting">
+            <DefiningQuery>SELECT 
+      [Setting].[SettingID] AS [SettingID], 
+      [Setting].[Category] AS [Category], 
+      [Setting].[Name] AS [Name], 
+      [Setting].[Value] AS [Value]
+      FROM [dbo].[Setting] AS [Setting]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CourseQualification" EntityType="SchedulingEntities.Store.CourseQualification" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Curriculum" EntityType="SchedulingEntities.Store.Curriculum" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="CurriculumCourse" EntityType="SchedulingEntities.Store.CurriculumCourse" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="DesignForm" EntityType="SchedulingEntities.Store.DesignForm" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="DesignFormDataList" EntityType="SchedulingEntities.Store.DesignFormDataList" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="DesignFormField" EntityType="SchedulingEntities.Store.DesignFormField" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="DesignFormTab" EntityType="SchedulingEntities.Store.DesignFormTab" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Document" EntityType="SchedulingEntities.Store.Document" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Event" EntityType="SchedulingEntities.Store.Event" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="EventAttendee" EntityType="SchedulingEntities.Store.EventAttendee" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="EventResource" EntityType="SchedulingEntities.Store.EventResource" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="EventType" EntityType="SchedulingEntities.Store.EventType" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="EventTypeCategory" EntityType="SchedulingEntities.Store.EventTypeCategory" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="FlightLeg" EntityType="SchedulingEntities.Store.FlightLeg" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="FlightLine" EntityType="SchedulingEntities.Store.FlightLine" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Options" EntityType="SchedulingEntities.Store.Options" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="OrganizationLocation" EntityType="SchedulingEntities.Store.OrganizationLocation" store:Type="Tables" store:Schema="SCH" store:Name="OrganizationLocation">
+            <DefiningQuery>SELECT 
+      [OrganizationLocation].[OrganizationLocationID] AS [OrganizationLocationID], 
+      [OrganizationLocation].[CreatedBy] AS [CreatedBy], 
+      [OrganizationLocation].[CreatedDate] AS [CreatedDate], 
+      [OrganizationLocation].[UpdatedBy] AS [UpdatedBy], 
+      [OrganizationLocation].[UpdatedDate] AS [UpdatedDate], 
+      [OrganizationLocation].[OrganizationID] AS [OrganizationID], 
+      [OrganizationLocation].[LocationID] AS [LocationID]
+      FROM [SCH].[OrganizationLocation] AS [OrganizationLocation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Recurrency" EntityType="SchedulingEntities.Store.Recurrency" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Resource" EntityType="SchedulingEntities.Store.Resource" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourceGroup" EntityType="SchedulingEntities.Store.ResourceGroup" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourceGroupResource" EntityType="SchedulingEntities.Store.ResourceGroupResource" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourceInventory" EntityType="SchedulingEntities.Store.ResourceInventory" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourcePool" EntityType="SchedulingEntities.Store.ResourcePool" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourcePoolResource" EntityType="SchedulingEntities.Store.ResourcePoolResource" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="ResourceType" EntityType="SchedulingEntities.Store.ResourceType" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="Task" EntityType="SchedulingEntities.Store.Task" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="TaskGroup" EntityType="SchedulingEntities.Store.TaskGroup" store:Type="Tables" Schema="SCH" />
+          <EntitySet Name="TimeUnitType" EntityType="SchedulingEntities.Store.TimeUnitType" store:Type="Tables" Schema="SCH" />
+        </EntityContainer>
+        <EntityType Name="DateFormat">
+          <Key>
+            <PropertyRef Name="DateFormatID" />
+          </Key>
+          <Property Name="DateFormatID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Format" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="CultureID" Type="int" />
+          <Property Name="IsShort" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'GalaxyDevelopment.dbo.Setting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="SettingID" Type="int" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Value" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="CourseQualification">
+          <Key>
+            <PropertyRef Name="CurriculumCourseID" />
+          </Key>
+          <Property Name="CurriculumCourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QualificationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curriculum">
+          <Key>
+            <PropertyRef Name="CurriculumID" />
+          </Key>
+          <Property Name="CurriculumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TotalDays" Type="int" />
+          <Property Name="MaxStudents" Type="int" />
+          <Property Name="CurriculumCode" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CurriculumCourse">
+          <Key>
+            <PropertyRef Name="CurriculumCourseID" />
+          </Key>
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="TimeToTake" Type="int" />
+          <Property Name="IsPegged" Type="bit" />
+          <Property Name="IsLocked" Type="bit" />
+          <Property Name="CurriculumCourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="LagHourFromPrevious" Type="int" />
+          <Property Name="Prerequisite" Type="nvarchar(max)" />
+          <Property Name="IsBlank" Type="bit" />
+          <Property Name="TimeToEllapsed" Type="int" />
+          <Property Name="IsOnLine" Type="bit" />
+          <Property Name="ActualStartTime" Type="datetime" />
+          <Property Name="ActualTimeEllapsed" Type="int" />
+          <Property Name="TimeUnitTypeID" Type="int" Nullable="false" />
+          <Property Name="CurriculumCourseCode" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="DesignForm">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="ApplicaitonID" Type="int" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="DesignFormDataList">
+          <Key>
+            <PropertyRef Name="FormDataListID" />
+          </Key>
+          <Property Name="FormDataListID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayField" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="ValueField" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DesignFormField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="TabID" Type="int" Nullable="false" />
+          <Property Name="FieldID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Label" Type="nvarchar" MaxLength="500" />
+          <Property Name="ControlLeft" Type="int" Nullable="false" />
+          <Property Name="ControlTop" Type="int" Nullable="false" />
+          <Property Name="LabelLeft" Type="int" Nullable="false" />
+          <Property Name="LabelTop" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="ControlType" Type="int" />
+          <Property Name="IsSearch" Type="bit" />
+          <Property Name="IsReadOnly" Type="bit" Nullable="false" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="WithLabel" Type="bit" Nullable="false" />
+          <Property Name="QueryStatement" Type="nvarchar(max)" />
+          <Property Name="SkinID" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsLock" Type="bit" />
+          <Property Name="IsMandatory" Type="bit" />
+          <Property Name="Message" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDataList" Type="bit" />
+          <Property Name="DataListTypeID" Type="int" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="RegularExpr" Type="nvarchar(max)" />
+          <Property Name="ControlSize" Type="nvarchar" MaxLength="500" />
+          <Property Name="HasDefault" Type="bit" />
+          <Property Name="CanEnlarge" Type="bit" />
+          <Property Name="IsCalendar" Type="bit" />
+          <Property Name="DateFormat" Type="nvarchar" MaxLength="500" />
+          <Property Name="NewWindow" Type="bit" />
+          <Property Name="URL" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DesignFormTab">
+          <Key>
+            <PropertyRef Name="FormTabID" />
+          </Key>
+          <Property Name="FormTabID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="IsSysUse" Type="bit" Nullable="false" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="SysIdentity" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="EventDocumentId" />
+          </Key>
+          <Property Name="EventDocumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="RecurrencyID" Type="int" />
+          <Property Name="IsPegged" Type="bit" />
+          <Property Name="EventTypeID" Type="int" Nullable="false" />
+          <Property Name="OrganizationLocationID" Type="int" />
+          <Property Name="LinkedTable" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="EventCategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventAttendee">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsClient" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventResource">
+          <Key>
+            <PropertyRef Name="ResourcePoolGroopID" />
+          </Key>
+          <Property Name="ResourcePoolGroopID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDType" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="EventTypeId" />
+          </Key>
+          <Property Name="EventTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="LinkedTable" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="EventTypeCategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTypeCategory">
+          <Key>
+            <PropertyRef Name="EventTypeCategoryID" />
+          </Key>
+          <Property Name="EventTypeCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="LinkedTable" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="FlightLeg">
+          <Key>
+            <PropertyRef Name="FlightLegID" />
+          </Key>
+          <Property Name="FlightLegID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FlightLegCode" Type="datetime" />
+          <Property Name="FromLocationID" Type="int" />
+          <Property Name="ToLocationID" Type="int" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="Prerequisite" Type="nvarchar(max)" />
+          <Property Name="FlightNo" Type="datetime" />
+          <Property Name="FlightLineID" Type="int" />
+        </EntityType>
+        <EntityType Name="FlightLine">
+          <Key>
+            <PropertyRef Name="FlightLineID" />
+          </Key>
+          <Property Name="FlightLineID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleStartTime" Type="datetime" />
+          <Property Name="Hours" Type="int" />
+          <Property Name="TopLevelID" Type="int" />
+        </EntityType>
+        <EntityType Name="Options">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OptionKey" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OptionValue" Type="text" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'GalaxyDevelopment.SCH.OrganizationLocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="OrganizationLocation">
+          <Key>
+            <PropertyRef Name="OrganizationLocationID" />
+          </Key>
+          <Property Name="OrganizationLocationID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="OrganizationID" Type="int" />
+          <Property Name="LocationID" Type="int" />
+        </EntityType>
+        <EntityType Name="Recurrency">
+          <Key>
+            <PropertyRef Name="RecurrencyID" />
+          </Key>
+          <Property Name="RecurrencyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentRecurrencyID" Type="int" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="RecurrencyCount" Type="int" />
+          <Property Name="Summary" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="DailyEvery" Type="bit" />
+          <Property Name="DailyWeekendIncluded" Type="bit" />
+          <Property Name="WeeklyEvery" Type="bit" />
+          <Property Name="MonthlyCount" Type="int" />
+          <Property Name="MonthlyDay" Type="int" />
+          <Property Name="MonthlyEvery" Type="bit" />
+          <Property Name="WeeklySunday" Type="bit" />
+          <Property Name="WeeklyMonday" Type="bit" />
+          <Property Name="WeeklyTuesday" Type="bit" />
+          <Property Name="WeeklyWendsday" Type="bit" />
+          <Property Name="WeeklyThursday" Type="bit" />
+          <Property Name="WeeklyFriday" Type="bit" />
+          <Property Name="WeeklySaturday" Type="bit" />
+          <Property Name="RandomDate" Type="datetime" />
+          <Property Name="ExceptionDate" Type="datetime" />
+          <Property Name="EventID" Type="int" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Name="ResourceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="ResourceTypeID" Type="int" Nullable="false" />
+          <Property Name="HourlyRate" Type="int" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="OrganizationLocationID" Type="int" />
+          <Property Name="WeeklyUsedHours" Type="int" />
+          <Property Name="RankID" Type="int" />
+          <Property Name="EventLimit" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EventRestrictionID" Type="int" />
+          <Property Name="Field1" Type="int" />
+          <Property Name="Field2" Type="int" />
+          <Property Name="Field3" Type="int" />
+          <Property Name="Field4" Type="int" />
+          <Property Name="Field5" Type="int" />
+          <Property Name="Field6" Type="int" />
+          <Property Name="Field7" Type="int" />
+          <Property Name="Field8" Type="int" />
+          <Property Name="Field9" Type="int" />
+          <Property Name="Field10" Type="int" />
+          <Property Name="Field11" Type="int" />
+          <Property Name="Field12" Type="int" />
+          <Property Name="Field13" Type="int" />
+          <Property Name="Field14" Type="int" />
+          <Property Name="Field15" Type="int" />
+          <Property Name="Field16" Type="int" />
+          <Property Name="Field17" Type="int" />
+          <Property Name="Field18" Type="int" />
+          <Property Name="Field19" Type="int" />
+          <Property Name="Field20" Type="int" />
+          <Property Name="Field21" Type="int" />
+          <Property Name="Field22" Type="int" />
+          <Property Name="Field23" Type="int" />
+          <Property Name="Field24" Type="int" />
+          <Property Name="Field25" Type="int" />
+          <Property Name="Field26" Type="int" />
+          <Property Name="Field27" Type="int" />
+          <Property Name="Field28" Type="int" />
+          <Property Name="Field29" Type="int" />
+          <Property Name="Field30" Type="int" />
+          <Property Name="Field31" Type="int" />
+          <Property Name="Field32" Type="int" />
+          <Property Name="Field33" Type="int" />
+          <Property Name="Field34" Type="int" />
+          <Property Name="Field35" Type="int" />
+          <Property Name="Field36" Type="int" />
+          <Property Name="Field37" Type="int" />
+          <Property Name="Field38" Type="int" />
+          <Property Name="Field39" Type="int" />
+          <Property Name="Field40" Type="int" />
+        </EntityType>
+        <EntityType Name="ResourceGroup">
+          <Key>
+            <PropertyRef Name="ResourceGroupID" />
+          </Key>
+          <Property Name="ResourceGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ResourceGroupResource">
+          <Key>
+            <PropertyRef Name="ResourceGroupID" />
+          </Key>
+          <Property Name="ResourceGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceID" Type="int" Nullable="false" />
+          <Property Name="SequenceNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResourceInventory">
+          <Key>
+            <PropertyRef Name="ResourceInventoryID" />
+          </Key>
+          <Property Name="ResourceInventoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InventoryDate" Type="datetime" />
+          <Property Name="ResourcePoolID" Type="int" Nullable="false" />
+          <Property Name="OrganizationLocationID" Type="int" Nullable="false" />
+          <Property Name="CheckInventory" Type="bit" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitCostRate" Type="decimal" Scale="2" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ResourcePool">
+          <Key>
+            <PropertyRef Name="ResourcePoolID" />
+          </Key>
+          <Property Name="ResourcePoolID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="ResourceTypeID" Type="int" Nullable="false" />
+          <Property Name="CheckInventory" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ResourcePoolResource">
+          <Key>
+            <PropertyRef Name="ResourcePoolID" />
+          </Key>
+          <Property Name="ResourcePoolID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResourceType">
+          <Key>
+            <PropertyRef Name="ResourceTypeID" />
+          </Key>
+          <Property Name="ResourceTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsFixed" Type="bit" Nullable="false" />
+          <Property Name="IsService" Type="bit" Nullable="false" />
+          <Property Name="IsDeplete" Type="bit" Nullable="false" />
+          <Property Name="HasSerialNumber" Type="bit" Nullable="false" />
+          <Property Name="FormID" Type="int" />
+          <Property Name="HasEventlimit" Type="bit" />
+          <Property Name="HasEventRestriction" Type="bit" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SequenceNo" Type="int" />
+          <Property Name="Hours" Type="int" />
+          <Property Name="Prerequisite" Type="nvarchar(max)" />
+          <Property Name="Deadline" Type="datetime" />
+          <Property Name="TaskGroupID" Type="int" />
+          <Property Name="TimeUnitTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="TaskGroup">
+          <Key>
+            <PropertyRef Name="TaskGroupID" />
+          </Key>
+          <Property Name="TaskGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Deadline" Type="datetime" />
+          <Property Name="TopLevelID" Type="int" />
+          <Property Name="ScheduleStartDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TimeUnitType">
+          <Key>
+            <PropertyRef Name="TimeUnitTypeID" />
+          </Key>
+          <Property Name="TimeUnitTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchedulingEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SchedulingEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OrganizationLocations" EntityType="SchedulingEntities.OrganizationLocation" />
+          <EntitySet Name="DateFormats" EntityType="SchedulingEntities.DateFormat" />
+          <EntitySet Name="Settings" EntityType="SchedulingEntities.Setting" />
+          <EntitySet Name="CourseQualifications" EntityType="SchedulingEntities.CourseQualification" />
+          <EntitySet Name="Curricula" EntityType="SchedulingEntities.Curriculum" />
+          <EntitySet Name="CurriculumCourses" EntityType="SchedulingEntities.CurriculumCourse" />
+          <EntitySet Name="DesignFormDataLists" EntityType="SchedulingEntities.DesignFormDataList" />
+          <EntitySet Name="DesignFormFields" EntityType="SchedulingEntities.DesignFormField" />
+          <EntitySet Name="DesignFormTabs" EntityType="SchedulingEntities.DesignFormTab" />
+          <EntitySet Name="Documents" EntityType="SchedulingEntities.Document" />
+          <EntitySet Name="Events" EntityType="SchedulingEntities.Event" />
+          <EntitySet Name="EventAttendees" EntityType="SchedulingEntities.EventAttendee" />
+          <EntitySet Name="EventResources" EntityType="SchedulingEntities.EventResource" />
+          <EntitySet Name="EventTypes" EntityType="SchedulingEntities.EventType" />
+          <EntitySet Name="EventTypeCategories" EntityType="SchedulingEntities.EventTypeCategory" />
+          <EntitySet Name="FlightLegs" EntityType="SchedulingEntities.FlightLeg" />
+          <EntitySet Name="FlightLines" EntityType="SchedulingEntities.FlightLine" />
+          <EntitySet Name="Options" EntityType="SchedulingEntities.Option" />
+          <EntitySet Name="Recurrencies" EntityType="SchedulingEntities.Recurrency" />
+          <EntitySet Name="Resources" EntityType="SchedulingEntities.Resource" />
+          <EntitySet Name="ResourceGroups" EntityType="SchedulingEntities.ResourceGroup" />
+          <EntitySet Name="ResourceGroupResources" EntityType="SchedulingEntities.ResourceGroupResource" />
+          <EntitySet Name="ResourceInventories" EntityType="SchedulingEntities.ResourceInventory" />
+          <EntitySet Name="ResourcePools" EntityType="SchedulingEntities.ResourcePool" />
+          <EntitySet Name="ResourcePoolResources" EntityType="SchedulingEntities.ResourcePoolResource" />
+          <EntitySet Name="ResourceTypes" EntityType="SchedulingEntities.ResourceType" />
+          <EntitySet Name="Tasks" EntityType="SchedulingEntities.Task" />
+          <EntitySet Name="TaskGroups" EntityType="SchedulingEntities.TaskGroup" />
+          <EntitySet Name="TimeUnitTypes" EntityType="SchedulingEntities.TimeUnitType" />
+          <EntitySet Name="DesignForms" EntityType="SchedulingEntities.DesignForm" />
+        </EntityContainer>
+        <EntityType Name="OrganizationLocation">
+          <Key>
+            <PropertyRef Name="OrganizationLocationID" />
+          </Key>
+          <Property Name="OrganizationLocationID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" />
+          <Property Name="OrganizationID" Type="Int32" />
+          <Property Name="LocationID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DateFormat">
+          <Key>
+            <PropertyRef Name="DateFormatID" />
+          </Key>
+          <Property Type="Int32" Name="DateFormatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Format" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CultureID" />
+          <Property Type="Boolean" Name="IsShort" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Type="Int32" Name="SettingID" Nullable="false" />
+          <Property Type="String" Name="Category" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CourseQualification">
+          <Key>
+            <PropertyRef Name="CurriculumCourseID" />
+          </Key>
+          <Property Type="Int32" Name="CurriculumCourseID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="QualificationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curriculum">
+          <Key>
+            <PropertyRef Name="CurriculumID" />
+          </Key>
+          <Property Type="Int32" Name="CurriculumID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TotalDays" />
+          <Property Type="Int32" Name="MaxStudents" />
+          <Property Type="String" Name="CurriculumCode" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CurriculumCourse">
+          <Key>
+            <PropertyRef Name="CurriculumCourseID" />
+          </Key>
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="Int32" Name="TimeToTake" />
+          <Property Type="Boolean" Name="IsPegged" />
+          <Property Type="Boolean" Name="IsLocked" />
+          <Property Type="Int32" Name="CurriculumCourseID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SequenceNo" />
+          <Property Type="Int32" Name="LagHourFromPrevious" />
+          <Property Type="String" Name="Prerequisite" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsBlank" />
+          <Property Type="Int32" Name="TimeToEllapsed" />
+          <Property Type="Boolean" Name="IsOnLine" />
+          <Property Type="DateTime" Name="ActualStartTime" />
+          <Property Type="Int32" Name="ActualTimeEllapsed" />
+          <Property Type="Int32" Name="TimeUnitTypeID" Nullable="false" />
+          <Property Type="String" Name="CurriculumCourseCode" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DesignFormDataList">
+          <Key>
+            <PropertyRef Name="FormDataListID" />
+          </Key>
+          <Property Type="Int32" Name="FormDataListID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DisplayField" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ValueField" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="UpdatedDate" />
+        </EntityType>
+        <EntityType Name="DesignFormField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="Int32" Name="TabID" Nullable="false" />
+          <Property Type="Int32" Name="FieldID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Label" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ControlLeft" Nullable="false" />
+          <Property Type="Int32" Name="ControlTop" Nullable="false" />
+          <Property Type="Int32" Name="LabelLeft" Nullable="false" />
+          <Property Type="Int32" Name="LabelTop" Nullable="false" />
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Height" />
+          <Property Type="Int32" Name="ControlType" />
+          <Property Type="Boolean" Name="IsSearch" />
+          <Property Type="Boolean" Name="IsReadOnly" Nullable="false" />
+          <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Boolean" Name="WithLabel" Nullable="false" />
+          <Property Type="String" Name="QueryStatement" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SkinID" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsLock" />
+          <Property Type="Boolean" Name="IsMandatory" />
+          <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDataList" />
+          <Property Type="Int32" Name="DataListTypeID" />
+          <Property Type="String" Name="DefaultValue" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegularExpr" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ControlSize" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HasDefault" />
+          <Property Type="Boolean" Name="CanEnlarge" />
+          <Property Type="Boolean" Name="IsCalendar" />
+          <Property Type="String" Name="DateFormat" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="NewWindow" />
+          <Property Type="String" Name="URL" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="UpdatedDate" />
+        </EntityType>
+        <EntityType Name="DesignFormTab">
+          <Key>
+            <PropertyRef Name="FormTabID" />
+          </Key>
+          <Property Type="Int32" Name="FormTabID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" />
+          <Property Type="String" Name="ImagePath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSysUse" Nullable="false" />
+          <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="String" Name="SysIdentity" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="EventDocumentId" />
+          </Key>
+          <Property Type="Int32" Name="EventDocumentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EventId" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ResourceID" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="Int32" Name="RecurrencyID" />
+          <Property Type="Boolean" Name="IsPegged" />
+          <Property Type="Int32" Name="EventTypeID" Nullable="false" />
+          <Property Type="Int32" Name="OrganizationLocationID" />
+          <Property Type="String" Name="LinkedTable" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EventCategoryID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventAttendee">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Boolean" Name="IsClient" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventResource">
+          <Key>
+            <PropertyRef Name="ResourcePoolGroopID" />
+          </Key>
+          <Property Type="Int32" Name="ResourcePoolGroopID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IDType" Nullable="false" />
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="EventTypeId" />
+          </Key>
+          <Property Type="Int32" Name="EventTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedTable" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EventTypeCategoryID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTypeCategory">
+          <Key>
+            <PropertyRef Name="EventTypeCategoryID" />
+          </Key>
+          <Property Type="Int32" Name="EventTypeCategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedTable" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FlightLeg">
+          <Key>
+            <PropertyRef Name="FlightLegID" />
+          </Key>
+          <Property Type="Int32" Name="FlightLegID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FlightLegCode" />
+          <Property Type="Int32" Name="FromLocationID" />
+          <Property Type="Int32" Name="ToLocationID" />
+          <Property Type="Int32" Name="SequenceNo" />
+          <Property Type="String" Name="Prerequisite" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FlightNo" />
+          <Property Type="Int32" Name="FlightLineID" />
+        </EntityType>
+        <EntityType Name="FlightLine">
+          <Key>
+            <PropertyRef Name="FlightLineID" />
+          </Key>
+          <Property Type="Int32" Name="FlightLineID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="ScheduleStartTime" />
+          <Property Type="Int32" Name="Hours" />
+          <Property Type="Int32" Name="TopLevelID" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Type="Int32" Name="OptionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OptionKey" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OptionValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsDeleted" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recurrency">
+          <Key>
+            <PropertyRef Name="RecurrencyID" />
+          </Key>
+          <Property Type="Int32" Name="RecurrencyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ParentRecurrencyID" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="Int32" Name="RecurrencyCount" />
+          <Property Type="Int32" Name="Summary" />
+          <Property Type="String" Name="Type" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="DailyEvery" />
+          <Property Type="Boolean" Name="DailyWeekendIncluded" />
+          <Property Type="Boolean" Name="WeeklyEvery" />
+          <Property Type="Int32" Name="MonthlyCount" />
+          <Property Type="Int32" Name="MonthlyDay" />
+          <Property Type="Boolean" Name="MonthlyEvery" />
+          <Property Type="Boolean" Name="WeeklySunday" />
+          <Property Type="Boolean" Name="WeeklyMonday" />
+          <Property Type="Boolean" Name="WeeklyTuesday" />
+          <Property Type="Boolean" Name="WeeklyWendsday" />
+          <Property Type="Boolean" Name="WeeklyThursday" />
+          <Property Type="Boolean" Name="WeeklyFriday" />
+          <Property Type="Boolean" Name="WeeklySaturday" />
+          <Property Type="DateTime" Name="RandomDate" />
+          <Property Type="DateTime" Name="ExceptionDate" />
+          <Property Type="Int32" Name="EventID" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Type="Int32" Name="ResourceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ResourceTypeID" Nullable="false" />
+          <Property Type="Int32" Name="HourlyRate" />
+          <Property Type="String" Name="SerialNumber" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OrganizationLocationID" />
+          <Property Type="Int32" Name="WeeklyUsedHours" />
+          <Property Type="Int32" Name="RankID" />
+          <Property Type="Int32" Name="EventLimit" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EventRestrictionID" />
+          <Property Type="Int32" Name="Field1" />
+          <Property Type="Int32" Name="Field2" />
+          <Property Type="Int32" Name="Field3" />
+          <Property Type="Int32" Name="Field4" />
+          <Property Type="Int32" Name="Field5" />
+          <Property Type="Int32" Name="Field6" />
+          <Property Type="Int32" Name="Field7" />
+          <Property Type="Int32" Name="Field8" />
+          <Property Type="Int32" Name="Field9" />
+          <Property Type="Int32" Name="Field10" />
+          <Property Type="Int32" Name="Field11" />
+          <Property Type="Int32" Name="Field12" />
+          <Property Type="Int32" Name="Field13" />
+          <Property Type="Int32" Name="Field14" />
+          <Property Type="Int32" Name="Field15" />
+          <Property Type="Int32" Name="Field16" />
+          <Property Type="Int32" Name="Field17" />
+          <Property Type="Int32" Name="Field18" />
+          <Property Type="Int32" Name="Field19" />
+          <Property Type="Int32" Name="Field20" />
+          <Property Type="Int32" Name="Field21" />
+          <Property Type="Int32" Name="Field22" />
+          <Property Type="Int32" Name="Field23" />
+          <Property Type="Int32" Name="Field24" />
+          <Property Type="Int32" Name="Field25" />
+          <Property Type="Int32" Name="Field26" />
+          <Property Type="Int32" Name="Field27" />
+          <Property Type="Int32" Name="Field28" />
+          <Property Type="Int32" Name="Field29" />
+          <Property Type="Int32" Name="Field30" />
+          <Property Type="Int32" Name="Field31" />
+          <Property Type="Int32" Name="Field32" />
+          <Property Type="Int32" Name="Field33" />
+          <Property Type="Int32" Name="Field34" />
+          <Property Type="Int32" Name="Field35" />
+          <Property Type="Int32" Name="Field36" />
+          <Property Type="Int32" Name="Field37" />
+          <Property Type="Int32" Name="Field38" />
+          <Property Type="Int32" Name="Field39" />
+          <Property Type="Int32" Name="Field40" />
+        </EntityType>
+        <EntityType Name="ResourceGroup">
+          <Key>
+            <PropertyRef Name="ResourceGroupID" />
+          </Key>
+          <Property Type="Int32" Name="ResourceGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ResourceGroupResource">
+          <Key>
+            <PropertyRef Name="ResourceGroupID" />
+          </Key>
+          <Property Type="Int32" Name="ResourceGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ResourceID" Nullable="false" />
+          <Property Type="Int32" Name="SequenceNo" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResourceInventory">
+          <Key>
+            <PropertyRef Name="ResourceInventoryID" />
+          </Key>
+          <Property Type="Int32" Name="ResourceInventoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="InventoryDate" />
+          <Property Type="Int32" Name="ResourcePoolID" Nullable="false" />
+          <Property Type="Int32" Name="OrganizationLocationID" Nullable="false" />
+          <Property Type="Boolean" Name="CheckInventory" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Decimal" Name="UnitCostRate" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="UpdatedDate" />
+        </EntityType>
+        <EntityType Name="ResourcePool">
+          <Key>
+            <PropertyRef Name="ResourcePoolID" />
+          </Key>
+          <Property Type="Int32" Name="ResourcePoolID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ResourceTypeID" Nullable="false" />
+          <Property Type="Boolean" Name="CheckInventory" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ResourcePoolResource">
+          <Key>
+            <PropertyRef Name="ResourcePoolID" />
+          </Key>
+          <Property Type="Int32" Name="ResourcePoolID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ResourceID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResourceType">
+          <Key>
+            <PropertyRef Name="ResourceTypeID" />
+          </Key>
+          <Property Type="Int32" Name="ResourceTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsFixed" Nullable="false" />
+          <Property Type="Boolean" Name="IsService" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeplete" Nullable="false" />
+          <Property Type="Boolean" Name="HasSerialNumber" Nullable="false" />
+          <Property Type="Int32" Name="FormID" />
+          <Property Type="Boolean" Name="HasEventlimit" />
+          <Property Type="Boolean" Name="HasEventRestriction" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Type="Int32" Name="TaskID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SequenceNo" />
+          <Property Type="Int32" Name="Hours" />
+          <Property Type="String" Name="Prerequisite" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Deadline" />
+          <Property Type="Int32" Name="TaskGroupID" />
+          <Property Type="Int32" Name="TimeUnitTypeID" />
+        </EntityType>
+        <EntityType Name="TaskGroup">
+          <Key>
+            <PropertyRef Name="TaskGroupID" />
+          </Key>
+          <Property Type="Int32" Name="TaskGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Deadline" />
+          <Property Type="Int32" Name="TopLevelID" />
+          <Property Type="DateTime" Name="ScheduleStartDate" />
+        </EntityType>
+        <EntityType Name="TimeUnitType">
+          <Key>
+            <PropertyRef Name="TimeUnitTypeID" />
+          </Key>
+          <Property Type="Int32" Name="TimeUnitTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DesignForm">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Type="Int32" Name="FormID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="UpdatedDate" />
+          <Property Type="Int32" Name="ApplicaitonID" />
+          <Property Type="Int32" Name="Type" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchedulingEntitiesStoreContainer" CdmEntityContainer="SchedulingEntity">
+          <EntitySetMapping Name="OrganizationLocations"><EntityTypeMapping TypeName="SchedulingEntities.OrganizationLocation"><MappingFragment StoreEntitySet="OrganizationLocation">
+            <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+            <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+            <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DateFormats">
+            <EntityTypeMapping TypeName="SchedulingEntities.DateFormat">
+              <MappingFragment StoreEntitySet="DateFormat">
+                <ScalarProperty Name="IsShort" ColumnName="IsShort" />
+                <ScalarProperty Name="CultureID" ColumnName="CultureID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Format" ColumnName="Format" />
+                <ScalarProperty Name="DateFormatID" ColumnName="DateFormatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="SchedulingEntities.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseQualifications">
+            <EntityTypeMapping TypeName="SchedulingEntities.CourseQualification">
+              <MappingFragment StoreEntitySet="CourseQualification">
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+                <ScalarProperty Name="CurriculumCourseID" ColumnName="CurriculumCourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curricula">
+            <EntityTypeMapping TypeName="SchedulingEntities.Curriculum">
+              <MappingFragment StoreEntitySet="Curriculum">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CurriculumCode" ColumnName="CurriculumCode" />
+                <ScalarProperty Name="MaxStudents" ColumnName="MaxStudents" />
+                <ScalarProperty Name="TotalDays" ColumnName="TotalDays" />
+                <ScalarProperty Name="CurriculumID" ColumnName="CurriculumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurriculumCourses">
+            <EntityTypeMapping TypeName="SchedulingEntities.CurriculumCourse">
+              <MappingFragment StoreEntitySet="CurriculumCourse">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CurriculumCourseCode" ColumnName="CurriculumCourseCode" />
+                <ScalarProperty Name="TimeUnitTypeID" ColumnName="TimeUnitTypeID" />
+                <ScalarProperty Name="ActualTimeEllapsed" ColumnName="ActualTimeEllapsed" />
+                <ScalarProperty Name="ActualStartTime" ColumnName="ActualStartTime" />
+                <ScalarProperty Name="IsOnLine" ColumnName="IsOnLine" />
+                <ScalarProperty Name="TimeToEllapsed" ColumnName="TimeToEllapsed" />
+                <ScalarProperty Name="IsBlank" ColumnName="IsBlank" />
+                <ScalarProperty Name="Prerequisite" ColumnName="Prerequisite" />
+                <ScalarProperty Name="LagHourFromPrevious" ColumnName="LagHourFromPrevious" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="CurriculumCourseID" ColumnName="CurriculumCourseID" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="IsPegged" ColumnName="IsPegged" />
+                <ScalarProperty Name="TimeToTake" ColumnName="TimeToTake" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignFormDataLists">
+            <EntityTypeMapping TypeName="SchedulingEntities.DesignFormDataList">
+              <MappingFragment StoreEntitySet="DesignFormDataList">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ValueField" ColumnName="ValueField" />
+                <ScalarProperty Name="DisplayField" ColumnName="DisplayField" />
+                <ScalarProperty Name="FormDataListID" ColumnName="FormDataListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignFormFields">
+            <EntityTypeMapping TypeName="SchedulingEntities.DesignFormField">
+              <MappingFragment StoreEntitySet="DesignFormField">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="NewWindow" ColumnName="NewWindow" />
+                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+                <ScalarProperty Name="IsCalendar" ColumnName="IsCalendar" />
+                <ScalarProperty Name="CanEnlarge" ColumnName="CanEnlarge" />
+                <ScalarProperty Name="HasDefault" ColumnName="HasDefault" />
+                <ScalarProperty Name="ControlSize" ColumnName="ControlSize" />
+                <ScalarProperty Name="RegularExpr" ColumnName="RegularExpr" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="DataListTypeID" ColumnName="DataListTypeID" />
+                <ScalarProperty Name="IsDataList" ColumnName="IsDataList" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="SkinID" ColumnName="SkinID" />
+                <ScalarProperty Name="QueryStatement" ColumnName="QueryStatement" />
+                <ScalarProperty Name="WithLabel" ColumnName="WithLabel" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="ControlType" ColumnName="ControlType" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="LabelTop" ColumnName="LabelTop" />
+                <ScalarProperty Name="LabelLeft" ColumnName="LabelLeft" />
+                <ScalarProperty Name="ControlTop" ColumnName="ControlTop" />
+                <ScalarProperty Name="ControlLeft" ColumnName="ControlLeft" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="TabID" ColumnName="TabID" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignFormTabs">
+            <EntityTypeMapping TypeName="SchedulingEntities.DesignFormTab">
+              <MappingFragment StoreEntitySet="DesignFormTab">
+                <ScalarProperty Name="SysIdentity" ColumnName="SysIdentity" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsSysUse" ColumnName="IsSysUse" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FormTabID" ColumnName="FormTabID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="SchedulingEntities.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventDocumentId" ColumnName="EventDocumentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="SchedulingEntities.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="EventCategoryID" ColumnName="EventCategoryID" />
+                <ScalarProperty Name="LinkedTable" ColumnName="LinkedTable" />
+                <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
+                <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+                <ScalarProperty Name="IsPegged" ColumnName="IsPegged" />
+                <ScalarProperty Name="RecurrencyID" ColumnName="RecurrencyID" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventAttendees">
+            <EntityTypeMapping TypeName="SchedulingEntities.EventAttendee">
+              <MappingFragment StoreEntitySet="EventAttendee">
+                <ScalarProperty Name="IsClient" ColumnName="IsClient" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventResources">
+            <EntityTypeMapping TypeName="SchedulingEntities.EventResource">
+              <MappingFragment StoreEntitySet="EventResource">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="ResourcePoolGroopID" ColumnName="ResourcePoolGroopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTypes">
+            <EntityTypeMapping TypeName="SchedulingEntities.EventType">
+              <MappingFragment StoreEntitySet="EventType">
+                <ScalarProperty Name="EventTypeCategoryID" ColumnName="EventTypeCategoryID" />
+                <ScalarProperty Name="LinkedTable" ColumnName="LinkedTable" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTypeCategories">
+            <EntityTypeMapping TypeName="SchedulingEntities.EventTypeCategory">
+              <MappingFragment StoreEntitySet="EventTypeCategory">
+                <ScalarProperty Name="LinkedTable" ColumnName="LinkedTable" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EventTypeCategoryID" ColumnName="EventTypeCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlightLegs">
+            <EntityTypeMapping TypeName="SchedulingEntities.FlightLeg">
+              <MappingFragment StoreEntitySet="FlightLeg">
+                <ScalarProperty Name="FlightLineID" ColumnName="FlightLineID" />
+                <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+                <ScalarProperty Name="Prerequisite" ColumnName="Prerequisite" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="ToLocationID" ColumnName="ToLocationID" />
+                <ScalarProperty Name="FromLocationID" ColumnName="FromLocationID" />
+                <ScalarProperty Name="FlightLegCode" ColumnName="FlightLegCode" />
+                <ScalarProperty Name="FlightLegID" ColumnName="FlightLegID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlightLines">
+            <EntityTypeMapping TypeName="SchedulingEntities.FlightLine">
+              <MappingFragment StoreEntitySet="FlightLine">
+                <ScalarProperty Name="TopLevelID" ColumnName="TopLevelID" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="ScheduleStartTime" ColumnName="ScheduleStartTime" />
+                <ScalarProperty Name="FlightLineID" ColumnName="FlightLineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="SchedulingEntities.Option">
+              <MappingFragment StoreEntitySet="Options">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
+                <ScalarProperty Name="OptionKey" ColumnName="OptionKey" />
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recurrencies">
+            <EntityTypeMapping TypeName="SchedulingEntities.Recurrency">
+              <MappingFragment StoreEntitySet="Recurrency">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="ExceptionDate" ColumnName="ExceptionDate" />
+                <ScalarProperty Name="RandomDate" ColumnName="RandomDate" />
+                <ScalarProperty Name="WeeklySaturday" ColumnName="WeeklySaturday" />
+                <ScalarProperty Name="WeeklyFriday" ColumnName="WeeklyFriday" />
+                <ScalarProperty Name="WeeklyThursday" ColumnName="WeeklyThursday" />
+                <ScalarProperty Name="WeeklyWendsday" ColumnName="WeeklyWendsday" />
+                <ScalarProperty Name="WeeklyTuesday" ColumnName="WeeklyTuesday" />
+                <ScalarProperty Name="WeeklyMonday" ColumnName="WeeklyMonday" />
+                <ScalarProperty Name="WeeklySunday" ColumnName="WeeklySunday" />
+                <ScalarProperty Name="MonthlyEvery" ColumnName="MonthlyEvery" />
+                <ScalarProperty Name="MonthlyDay" ColumnName="MonthlyDay" />
+                <ScalarProperty Name="MonthlyCount" ColumnName="MonthlyCount" />
+                <ScalarProperty Name="WeeklyEvery" ColumnName="WeeklyEvery" />
+                <ScalarProperty Name="DailyWeekendIncluded" ColumnName="DailyWeekendIncluded" />
+                <ScalarProperty Name="DailyEvery" ColumnName="DailyEvery" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="RecurrencyCount" ColumnName="RecurrencyCount" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ParentRecurrencyID" ColumnName="ParentRecurrencyID" />
+                <ScalarProperty Name="RecurrencyID" ColumnName="RecurrencyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="SchedulingEntities.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="Field40" ColumnName="Field40" />
+                <ScalarProperty Name="Field39" ColumnName="Field39" />
+                <ScalarProperty Name="Field38" ColumnName="Field38" />
+                <ScalarProperty Name="Field37" ColumnName="Field37" />
+                <ScalarProperty Name="Field36" ColumnName="Field36" />
+                <ScalarProperty Name="Field35" ColumnName="Field35" />
+                <ScalarProperty Name="Field34" ColumnName="Field34" />
+                <ScalarProperty Name="Field33" ColumnName="Field33" />
+                <ScalarProperty Name="Field32" ColumnName="Field32" />
+                <ScalarProperty Name="Field31" ColumnName="Field31" />
+                <ScalarProperty Name="Field30" ColumnName="Field30" />
+                <ScalarProperty Name="Field29" ColumnName="Field29" />
+                <ScalarProperty Name="Field28" ColumnName="Field28" />
+                <ScalarProperty Name="Field27" ColumnName="Field27" />
+                <ScalarProperty Name="Field26" ColumnName="Field26" />
+                <ScalarProperty Name="Field25" ColumnName="Field25" />
+                <ScalarProperty Name="Field24" ColumnName="Field24" />
+                <ScalarProperty Name="Field23" ColumnName="Field23" />
+                <ScalarProperty Name="Field22" ColumnName="Field22" />
+                <ScalarProperty Name="Field21" ColumnName="Field21" />
+                <ScalarProperty Name="Field20" ColumnName="Field20" />
+                <ScalarProperty Name="Field19" ColumnName="Field19" />
+                <ScalarProperty Name="Field18" ColumnName="Field18" />
+                <ScalarProperty Name="Field17" ColumnName="Field17" />
+                <ScalarProperty Name="Field16" ColumnName="Field16" />
+                <ScalarProperty Name="Field15" ColumnName="Field15" />
+                <ScalarProperty Name="Field14" ColumnName="Field14" />
+                <ScalarProperty Name="Field13" ColumnName="Field13" />
+                <ScalarProperty Name="Field12" ColumnName="Field12" />
+                <ScalarProperty Name="Field11" ColumnName="Field11" />
+                <ScalarProperty Name="Field10" ColumnName="Field10" />
+                <ScalarProperty Name="Field9" ColumnName="Field9" />
+                <ScalarProperty Name="Field8" ColumnName="Field8" />
+                <ScalarProperty Name="Field7" ColumnName="Field7" />
+                <ScalarProperty Name="Field6" ColumnName="Field6" />
+                <ScalarProperty Name="Field5" ColumnName="Field5" />
+                <ScalarProperty Name="Field4" ColumnName="Field4" />
+                <ScalarProperty Name="Field3" ColumnName="Field3" />
+                <ScalarProperty Name="Field2" ColumnName="Field2" />
+                <ScalarProperty Name="Field1" ColumnName="Field1" />
+                <ScalarProperty Name="EventRestrictionID" ColumnName="EventRestrictionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventLimit" ColumnName="EventLimit" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="WeeklyUsedHours" ColumnName="WeeklyUsedHours" />
+                <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="ResourceTypeID" ColumnName="ResourceTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourceGroups">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourceGroup">
+              <MappingFragment StoreEntitySet="ResourceGroup">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ResourceGroupID" ColumnName="ResourceGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourceGroupResources">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourceGroupResource">
+              <MappingFragment StoreEntitySet="ResourceGroupResource">
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="ResourceGroupID" ColumnName="ResourceGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourceInventories">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourceInventory">
+              <MappingFragment StoreEntitySet="ResourceInventory">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UnitCostRate" ColumnName="UnitCostRate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CheckInventory" ColumnName="CheckInventory" />
+                <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
+                <ScalarProperty Name="ResourcePoolID" ColumnName="ResourcePoolID" />
+                <ScalarProperty Name="InventoryDate" ColumnName="InventoryDate" />
+                <ScalarProperty Name="ResourceInventoryID" ColumnName="ResourceInventoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourcePools">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourcePool">
+              <MappingFragment StoreEntitySet="ResourcePool">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CheckInventory" ColumnName="CheckInventory" />
+                <ScalarProperty Name="ResourceTypeID" ColumnName="ResourceTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ResourcePoolID" ColumnName="ResourcePoolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourcePoolResources">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourcePoolResource">
+              <MappingFragment StoreEntitySet="ResourcePoolResource">
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="ResourcePoolID" ColumnName="ResourcePoolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourceTypes">
+            <EntityTypeMapping TypeName="SchedulingEntities.ResourceType">
+              <MappingFragment StoreEntitySet="ResourceType">
+                <ScalarProperty Name="HasEventRestriction" ColumnName="HasEventRestriction" />
+                <ScalarProperty Name="HasEventlimit" ColumnName="HasEventlimit" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="HasSerialNumber" ColumnName="HasSerialNumber" />
+                <ScalarProperty Name="IsDeplete" ColumnName="IsDeplete" />
+                <ScalarProperty Name="IsService" ColumnName="IsService" />
+                <ScalarProperty Name="IsFixed" ColumnName="IsFixed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ResourceTypeID" ColumnName="ResourceTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="SchedulingEntities.Task">
+              <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="TimeUnitTypeID" ColumnName="TimeUnitTypeID" />
+                <ScalarProperty Name="TaskGroupID" ColumnName="TaskGroupID" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Prerequisite" ColumnName="Prerequisite" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskGroups">
+            <EntityTypeMapping TypeName="SchedulingEntities.TaskGroup">
+              <MappingFragment StoreEntitySet="TaskGroup">
+                <ScalarProperty Name="ScheduleStartDate" ColumnName="ScheduleStartDate" />
+                <ScalarProperty Name="TopLevelID" ColumnName="TopLevelID" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="TaskGroupID" ColumnName="TaskGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeUnitTypes">
+            <EntityTypeMapping TypeName="SchedulingEntities.TimeUnitType">
+              <MappingFragment StoreEntitySet="TimeUnitType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TimeUnitTypeID" ColumnName="TimeUnitTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignForms">
+            <EntityTypeMapping TypeName="SchedulingEntities.DesignForm">
+              <MappingFragment StoreEntitySet="DesignForm">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ApplicaitonID" ColumnName="ApplicaitonID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SchedulingEntities" ZoomLevel="94">
+        <EntityTypeShape EntityType="SchedulingEntities.OrganizationLocation" Width="1.5" PointX="10.75" PointY="7.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchedulingEntities.DateFormat" Width="1.5" PointX="5.375" PointY="16.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SchedulingEntities.Setting" Width="1.5" PointX="7.375" PointY="16.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.CourseQualification" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="SchedulingEntities.Curriculum" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="SchedulingEntities.CurriculumCourse" Width="1.5" PointX="0.75" PointY="3.75" Height="4.2879036458333246" />
+        <EntityTypeShape EntityType="SchedulingEntities.DesignFormDataList" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SchedulingEntities.DesignFormField" Width="1.5" PointX="4.75" PointY="4.75" Height="8.51853515625001" />
+        <EntityTypeShape EntityType="SchedulingEntities.DesignFormTab" Width="1.5" PointX="6.75" PointY="0.75" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Document" Width="1.5" PointX="6.75" PointY="5.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Event" Width="1.5" PointX="8.75" PointY="0.75" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="SchedulingEntities.EventAttendee" Width="1.5" PointX="8.75" PointY="4.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SchedulingEntities.EventResource" Width="1.5" PointX="6.75" PointY="8.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SchedulingEntities.EventType" Width="1.5" PointX="0.75" PointY="9.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SchedulingEntities.EventTypeCategory" Width="1.5" PointX="10.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.FlightLeg" Width="1.5" PointX="10.75" PointY="3.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="SchedulingEntities.FlightLine" Width="1.5" PointX="6.75" PointY="11.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Option" Width="1.5" PointX="8.75" PointY="11.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="SchedulingEntities.Recurrency" Width="1.5" PointX="10.75" PointY="11.75" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Resource" Width="1.5" PointX="0.75" PointY="12.75" Height="10.82615234375001" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourceGroup" Width="1.5" PointX="12.75" PointY="0.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourceGroupResource" Width="1.5" PointX="12.75" PointY="3.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourceInventory" Width="1.5" PointX="12.75" PointY="11.75" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourcePool" Width="1.5" PointX="13.75" PointY="6.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourcePoolResource" Width="1.5" PointX="14.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="SchedulingEntities.ResourceType" Width="1.5" PointX="2.75" PointY="14.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Task" Width="1.5" PointX="14.75" PointY="9.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SchedulingEntities.TaskGroup" Width="1.5" PointX="14.75" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SchedulingEntities.TimeUnitType" Width="1.5" PointX="14.75" PointY="13.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="SchedulingEntities.DesignForm" Width="1.5" PointX="13.375" PointY="16.75" Height="2.9417936197916674" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

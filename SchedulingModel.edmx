@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="galaxyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="galaxyDBModelStoreContainer">
+          <EntitySet Name="DateFormat" EntityType="galaxyDBModel.Store.DateFormat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dictionary" EntityType="galaxyDBModel.Store.Dictionary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TimeFormat" EntityType="galaxyDBModel.Store.TimeFormat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="eForm" EntityType="galaxyDBModel.Store.eForm" store:Type="Tables" Schema="RSMS" />
+          <EntitySet Name="eFormDataList" EntityType="galaxyDBModel.Store.eFormDataList" store:Type="Tables" Schema="RSMS" />
+          <EntitySet Name="eFormField" EntityType="galaxyDBModel.Store.eFormField" store:Type="Tables" Schema="RSMS" />
+          <EntitySet Name="eFormTab" EntityType="galaxyDBModel.Store.eFormTab" store:Type="Tables" Schema="RSMS" />
+          <EntitySet Name="Options" EntityType="galaxyDBModel.Store.Options" store:Type="Tables" Schema="RSMS" />
+        </EntityContainer>
+        <EntityType Name="DateFormat">
+          <Key>
+            <PropertyRef Name="DateFormatID" />
+          </Key>
+          <Property Name="DateFormatID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Format" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="CultureID" Type="int" />
+          <Property Name="IsShort" Type="bit" />
+        </EntityType>
+        <EntityType Name="Dictionary">
+          <Key>
+            <PropertyRef Name="DicID" />
+          </Key>
+          <Property Name="DicID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimeFormat">
+          <Key>
+            <PropertyRef Name="TimeFormatID" />
+          </Key>
+          <Property Name="TimeFormatID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Format" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="CultureID" Type="int" />
+          <Property Name="IsShort" Type="bit" />
+        </EntityType>
+        <EntityType Name="eForm">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ApplicaitonID" Type="int" />
+        </EntityType>
+        <EntityType Name="eFormDataList">
+          <Key>
+            <PropertyRef Name="eFormDataListID" />
+          </Key>
+          <Property Name="eFormDataListID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayField" Type="nvarchar" MaxLength="80" />
+          <Property Name="ValueField" Type="ntext" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Type" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eFormField">
+          <Key>
+            <PropertyRef Name="eFormFieldID" />
+          </Key>
+          <Property Name="eFormFieldID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="TabID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="IsSearch" Type="bit" />
+          <Property Name="Label" Type="nvarchar" MaxLength="400" />
+          <Property Name="ControlLeft" Type="int" />
+          <Property Name="ControlTop" Type="int" />
+          <Property Name="LabelLeft" Type="int" />
+          <Property Name="LabelTop" Type="int" />
+          <Property Name="ControlType" Type="int" />
+          <Property Name="IsReadOnly" Type="bit" Nullable="false" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="WithLabel" Type="bit" Nullable="false" />
+          <Property Name="QueryStatement" Type="varchar" />
+          <Property Name="SkinID" Type="varchar" MaxLength="400" />
+          <Property Name="IsLock" Type="bit" />
+          <Property Name="IsMandatory" Type="bit" />
+          <Property Name="Message" Type="nvarchar" MaxLength="200" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="RegularExpr" Type="ntext" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDataList" Type="bit" />
+          <Property Name="Datalist" Type="varchar" MaxLength="350" />
+          <Property Name="ControlSize" Type="varchar" MaxLength="350" />
+          <Property Name="IsDefault" Type="bit" />
+          <Property Name="IsEnlarge" Type="bit" />
+          <Property Name="DateFormat" Type="nvarchar" MaxLength="350" />
+          <Property Name="IsCalendar" Type="bit" />
+          <Property Name="URL" Type="nvarchar" MaxLength="250" />
+          <Property Name="NewWindow" Type="bit" />
+        </EntityType>
+        <EntityType Name="eFormTab">
+          <Key>
+            <PropertyRef Name="eFormTabID" />
+          </Key>
+          <Property Name="eFormTabID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+          <Property Name="ImagePath" Type="int" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="IsSysUse" Type="bit" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="TreeIndex" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Desc" Type="ntext" />
+          <Property Name="SysIndetity" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Options">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OptionKey" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OptionValue" Type="text" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="galaxyDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RSMSEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="DateFormats" EntityType="galaxyDBModel.DateFormat" />
+          <EntitySet Name="TimeFormats" EntityType="galaxyDBModel.TimeFormat" />
+          <EntitySet Name="Options" EntityType="galaxyDBModel.Option" />
+          <EntitySet Name="eForms" EntityType="galaxyDBModel.eForm" />
+          <EntitySet Name="eFormTabs" EntityType="galaxyDBModel.eFormTab" />
+          <EntitySet Name="eFormFields" EntityType="galaxyDBModel.eFormField" />
+          <EntitySet Name="eFormDataLists" EntityType="galaxyDBModel.eFormDataList" />
+          <EntitySet Name="Dictionaries" EntityType="galaxyDBModel.Dictionary" />
+        </EntityContainer>
+        <EntityType Name="DateFormat">
+          <Key>
+            <PropertyRef Name="DateFormatID" />
+          </Key>
+          <Property Type="Int32" Name="DateFormatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Format" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CultureID" />
+          <Property Type="Boolean" Name="IsShort" />
+        </EntityType>
+        <EntityType Name="TimeFormat">
+          <Key>
+            <PropertyRef Name="TimeFormatID" />
+          </Key>
+          <Property Type="Int32" Name="TimeFormatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Format" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CultureID" />
+          <Property Type="Boolean" Name="IsShort" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Type="Int32" Name="OptionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OptionKey" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OptionValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsDeleted" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eForm">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Type="Int32" Name="FormID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Int32" Name="ApplicaitonID" />
+        </EntityType>
+        <EntityType Name="eFormTab">
+          <Key>
+            <PropertyRef Name="eFormTabID" />
+          </Key>
+          <Property Type="Int32" Name="eFormTabID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImagePath" />
+          <Property Type="Boolean" Name="IsVisible" />
+          <Property Type="Boolean" Name="IsEnabled" />
+          <Property Type="Boolean" Name="IsSysUse" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="String" Name="TreeIndex" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="String" Name="Desc" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SysIndetity" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="eFormField">
+          <Key>
+            <PropertyRef Name="eFormFieldID" />
+          </Key>
+          <Property Type="Int32" Name="eFormFieldID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="Int32" Name="TabID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSearch" />
+          <Property Type="String" Name="Label" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ControlLeft" />
+          <Property Type="Int32" Name="ControlTop" />
+          <Property Type="Int32" Name="LabelLeft" />
+          <Property Type="Int32" Name="LabelTop" />
+          <Property Type="Int32" Name="ControlType" />
+          <Property Type="Boolean" Name="IsReadOnly" Nullable="false" />
+          <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="Boolean" Name="WithLabel" Nullable="false" />
+          <Property Type="String" Name="QueryStatement" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SkinID" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsLock" />
+          <Property Type="Boolean" Name="IsMandatory" />
+          <Property Type="String" Name="Message" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Height" />
+          <Property Type="String" Name="DefaultValue" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegularExpr" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Boolean" Name="IsDataList" />
+          <Property Type="String" Name="Datalist" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ControlSize" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsDefault" />
+          <Property Type="Boolean" Name="IsEnlarge" />
+          <Property Type="String" Name="DateFormat" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsCalendar" />
+          <Property Type="String" Name="URL" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="NewWindow" />
+        </EntityType>
+        <EntityType Name="eFormDataList">
+          <Key>
+            <PropertyRef Name="eFormDataListID" />
+          </Key>
+          <Property Type="Int32" Name="eFormDataListID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DisplayField" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ValueField" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dictionary">
+          <Key>
+            <PropertyRef Name="DicID" />
+          </Key>
+          <Property Type="Int32" Name="DicID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Category" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="galaxyDBModelStoreContainer" CdmEntityContainer="RSMSEntities" >
+          <EntitySetMapping Name="DateFormats">
+            <EntityTypeMapping TypeName="galaxyDBModel.DateFormat">
+              <MappingFragment StoreEntitySet="DateFormat">
+                <ScalarProperty Name="IsShort" ColumnName="IsShort" />
+                <ScalarProperty Name="CultureID" ColumnName="CultureID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Format" ColumnName="Format" />
+                <ScalarProperty Name="DateFormatID" ColumnName="DateFormatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeFormats">
+            <EntityTypeMapping TypeName="galaxyDBModel.TimeFormat">
+              <MappingFragment StoreEntitySet="TimeFormat">
+                <ScalarProperty Name="IsShort" ColumnName="IsShort" />
+                <ScalarProperty Name="CultureID" ColumnName="CultureID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Format" ColumnName="Format" />
+                <ScalarProperty Name="TimeFormatID" ColumnName="TimeFormatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="galaxyDBModel.Option">
+              <MappingFragment StoreEntitySet="Options">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
+                <ScalarProperty Name="OptionKey" ColumnName="OptionKey" />
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eForms">
+            <EntityTypeMapping TypeName="galaxyDBModel.eForm">
+              <MappingFragment StoreEntitySet="eForm">
+                <ScalarProperty Name="ApplicaitonID" ColumnName="ApplicaitonID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eFormTabs">
+            <EntityTypeMapping TypeName="galaxyDBModel.eFormTab">
+              <MappingFragment StoreEntitySet="eFormTab">
+                <ScalarProperty Name="SysIndetity" ColumnName="SysIndetity" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TreeIndex" ColumnName="TreeIndex" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="IsSysUse" ColumnName="IsSysUse" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="eFormTabID" ColumnName="eFormTabID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eFormFields">
+            <EntityTypeMapping TypeName="galaxyDBModel.eFormField">
+              <MappingFragment StoreEntitySet="eFormField">
+                <ScalarProperty Name="NewWindow" ColumnName="NewWindow" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IsCalendar" ColumnName="IsCalendar" />
+                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+                <ScalarProperty Name="IsEnlarge" ColumnName="IsEnlarge" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="ControlSize" ColumnName="ControlSize" />
+                <ScalarProperty Name="Datalist" ColumnName="Datalist" />
+                <ScalarProperty Name="IsDataList" ColumnName="IsDataList" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="RegularExpr" ColumnName="RegularExpr" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="SkinID" ColumnName="SkinID" />
+                <ScalarProperty Name="QueryStatement" ColumnName="QueryStatement" />
+                <ScalarProperty Name="WithLabel" ColumnName="WithLabel" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+                <ScalarProperty Name="ControlType" ColumnName="ControlType" />
+                <ScalarProperty Name="LabelTop" ColumnName="LabelTop" />
+                <ScalarProperty Name="LabelLeft" ColumnName="LabelLeft" />
+                <ScalarProperty Name="ControlTop" ColumnName="ControlTop" />
+                <ScalarProperty Name="ControlLeft" ColumnName="ControlLeft" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TabID" ColumnName="TabID" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="eFormFieldID" ColumnName="eFormFieldID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eFormDataLists">
+            <EntityTypeMapping TypeName="galaxyDBModel.eFormDataList">
+              <MappingFragment StoreEntitySet="eFormDataList">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ValueField" ColumnName="ValueField" />
+                <ScalarProperty Name="DisplayField" ColumnName="DisplayField" />
+                <ScalarProperty Name="eFormDataListID" ColumnName="eFormDataListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dictionaries">
+            <EntityTypeMapping TypeName="galaxyDBModel.Dictionary">
+              <MappingFragment StoreEntitySet="Dictionary">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DicID" ColumnName="DicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RSMSModel" ZoomLevel="82" >
+        <EntityTypeShape EntityType="galaxyDBModel.DateFormat" Width="1.5" PointX="1" PointY="0.5" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="galaxyDBModel.TimeFormat" Width="1.5" PointX="1" PointY="2.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="galaxyDBModel.Option" Width="1.5" PointX="3.25" PointY="0.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="galaxyDBModel.eForm" Width="1.5" PointX="5.875" PointY="0.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="galaxyDBModel.eFormTab" Width="1.5" PointX="6.125" PointY="4" Height="4.2879036458333317" />
+        <EntityTypeShape EntityType="galaxyDBModel.eFormField" Width="1.5" PointX="8.25" PointY="0.625" Height="8.3262337239583353" />
+        <EntityTypeShape EntityType="galaxyDBModel.eFormDataList" Width="1.5" PointX="10.625" PointY="1.875" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="galaxyDBModel.Dictionary" Width="1.5" PointX="10.625" PointY="5.625" Height="1.7879850260416674" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
