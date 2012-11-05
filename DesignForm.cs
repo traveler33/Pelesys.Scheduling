@@ -32,6 +32,20 @@ namespace Pelesys.Scheduling
 
         }
 
+        public static DesignForm GetDataByName(String  Name)
+        {
+
+            string eSQL = " Where T.Name ='" + Name + "'";
+            var list = DesignForm.LoadListWhere<DesignForm>(eSQL);
+            if (list != null && list.Count > 0)
+            {
+                return list.First();
+            }
+            return null;
+        }
+
+
+
         static public List<DesignForm> GetDataBy(Int32 TypeID)
         {
             return ResourceType.LoadList<DesignForm>("Select Value T From DesignForms as T Where T.Type =" + TypeID + "  Order by T.Name ");

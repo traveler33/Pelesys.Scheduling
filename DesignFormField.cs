@@ -25,7 +25,10 @@ namespace Pelesys.Scheduling
 
         #region Property
 
-    
+        static public Int32 maxFields = 40;
+        static public string error = string.Empty;
+       public const string MaxError = "Sorry, you can not create a new field any more. ";
+
         #endregion
 
 
@@ -191,25 +194,25 @@ namespace Pelesys.Scheduling
 
         }
 
-
-        public static void ModifyDBTable(String TableName, string ColumnName, string DataType, Boolean IsAddNewColumn, int fieldID)
+        // function name should change as checkFieldMax
+        public static void checkFieldMax( Boolean IsAddNewColumn,  Int32 formID)
         {
             string SQL = string.Empty;
-
+            /*
             if (IsAddNewColumn)
             {
-                SQL = @"ALTER TABLE  " + TableName + "  " +
+                SQL = @"ALTER TABLE  " + TableName + "  " + 
                               " ADD  " + ColumnName + " " + DataType + " NULL  ";
                 DBManager db = new DBManager();
                 db.ExecuteNonQuery(SQL);
-
+            
             }
             else
 
 
             {
 
-                //Change column name
+                //Change column name*
                 SQL = @"ALTER TABLE  " + TableName + "  " +
                             " ALTER COLUMN " + ColumnName + " " + DataType + " NULL  ";
                 DBManager db = new DBManager();
@@ -228,11 +231,33 @@ namespace Pelesys.Scheduling
             
             }
 
-            
-           
-           
+            */
+            error = string.Empty;
+
+            if (IsAddNewColumn)
+            {
+                // only allow max 40 fields to resource table
+                //maxFields+ ;
+                var listcount = DesignFormField.LoadListWhere<DesignFormField>("Where T.formid=" + formID  + " order by T.Name ");
+                if (listcount.Count == maxFields || listcount.Count >  maxFields )
+                {
+                    error = MaxError;
+                    return;
+                }
+                //get last column name in resource tables 
+
+                // insert a new record to form design fields
+                //string sNewFieldName = "Field" +  listcount.Count + 1  ;
+                //DesignFormField ofield = new DesignFormField();
+                //ofield.Name = sNewFieldName;
+                //ofield.FormID = formID;             
+
+            }
 
         }
+
+
+      
 
         //Delete a table column
         public static void DeleteColumnFromDBTable(String TableName, string ColumnName)
