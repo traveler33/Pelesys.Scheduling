@@ -98,9 +98,9 @@ namespace Pelesys.Scheduling
             return true ;
         }
 
-        public static FieldConstrol GetLabelName(string TableName)
+        public static FieldConstrol GetLabelName(string TableName, Int32 FormID)
         {
-            string tSQL = "FormDesign @Type  = 'GetNewField',@Table='" + TableName + "'";
+            string tSQL = "FormDesign @Type  = 'GetNewField',@Table='sch.DesignFormField',  @eFormID=" + FormID.ToString() ;
             DataTable oTb = DesignFormField.LoadDataTableBySQL(tSQL);
             FieldConstrol oField = new FieldConstrol();
             if (oTb.Rows.Count > 0)

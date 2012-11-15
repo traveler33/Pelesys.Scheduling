@@ -39,9 +39,9 @@ namespace Pelesys.Scheduling
 
          
 
-         public static List<DesignFormDataList> GetDataListByType(int Type)
+         public static List<DesignFormDataList> GetDataListByType(String Type)
          {
-             return DesignFormDataList.LoadListWhere<DesignFormDataList>("Where T.Type =" + Type );
+             return DesignFormDataList.LoadListWhere<DesignFormDataList>("Where T.Category ='" + Type + "'" );
          }
 
          #endregion

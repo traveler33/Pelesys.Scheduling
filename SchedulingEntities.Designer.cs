@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using Pelesys.Data;
+
 [assembly: EdmSchemaAttribute()]
 
 namespace Pelesys.Scheduling
@@ -372,22 +373,6 @@ namespace Pelesys.Scheduling
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Resource> Resources
-        {
-            get
-            {
-                if ((_Resources == null))
-                {
-                    _Resources = base.CreateObjectSet<Resource>("Resources");
-                }
-                return _Resources;
-            }
-        }
-        private ObjectSet<Resource> _Resources;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ResourceGroup> ResourceGroups
         {
             get
@@ -544,6 +529,22 @@ namespace Pelesys.Scheduling
             }
         }
         private ObjectSet<DesignForm> _DesignForms;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Resource> Resources
+        {
+            get
+            {
+                if ((_Resources == null))
+                {
+                    _Resources = base.CreateObjectSet<Resource>("Resources");
+                }
+                return _Resources;
+            }
+        }
+        private ObjectSet<Resource> _Resources;
 
         #endregion
         #region AddTo Methods
@@ -701,14 +702,6 @@ namespace Pelesys.Scheduling
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Resources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToResources(Resource resource)
-        {
-            base.AddObject("Resources", resource);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ResourceGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToResourceGroups(ResourceGroup resourceGroup)
@@ -786,6 +779,14 @@ namespace Pelesys.Scheduling
         public void AddToDesignForms(DesignForm designForm)
         {
             base.AddObject("DesignForms", designForm);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Resources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToResources(Resource resource)
+        {
+            base.AddObject("Resources", resource);
         }
 
         #endregion
@@ -3206,6 +3207,30 @@ namespace Pelesys.Scheduling
         private Nullable<global::System.DateTime> _UpdatedDate;
         partial void OnUpdatedDateChanging(Nullable<global::System.DateTime> value);
         partial void OnUpdatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DataListType
+        {
+            get
+            {
+                return _DataListType;
+            }
+            set
+            {
+                OnDataListTypeChanging(value);
+                ReportPropertyChanging("DataListType");
+                _DataListType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DataListType");
+                OnDataListTypeChanged();
+            }
+        }
+        private global::System.String _DataListType;
+        partial void OnDataListTypeChanging(global::System.String value);
+        partial void OnDataListTypeChanged();
 
         #endregion
     
@@ -5985,7 +6010,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> HourlyRate
+        public Nullable<global::System.Decimal> HourlyRate
         {
             get
             {
@@ -6000,8 +6025,8 @@ namespace Pelesys.Scheduling
                 OnHourlyRateChanged();
             }
         }
-        private Nullable<global::System.Int32> _HourlyRate;
-        partial void OnHourlyRateChanging(Nullable<global::System.Int32> value);
+        private Nullable<global::System.Decimal> _HourlyRate;
+        partial void OnHourlyRateChanging(Nullable<global::System.Decimal> value);
         partial void OnHourlyRateChanged();
     
         /// <summary>
@@ -6177,7 +6202,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field1
+        public global::System.String Field1
         {
             get
             {
@@ -6187,13 +6212,13 @@ namespace Pelesys.Scheduling
             {
                 OnField1Changing(value);
                 ReportPropertyChanging("Field1");
-                _Field1 = StructuralObject.SetValidValue(value);
+                _Field1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field1");
                 OnField1Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field1;
-        partial void OnField1Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field1;
+        partial void OnField1Changing(global::System.String value);
         partial void OnField1Changed();
     
         /// <summary>
@@ -6201,7 +6226,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field2
+        public global::System.String Field2
         {
             get
             {
@@ -6211,13 +6236,13 @@ namespace Pelesys.Scheduling
             {
                 OnField2Changing(value);
                 ReportPropertyChanging("Field2");
-                _Field2 = StructuralObject.SetValidValue(value);
+                _Field2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field2");
                 OnField2Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field2;
-        partial void OnField2Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field2;
+        partial void OnField2Changing(global::System.String value);
         partial void OnField2Changed();
     
         /// <summary>
@@ -6225,7 +6250,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field3
+        public global::System.String Field3
         {
             get
             {
@@ -6235,13 +6260,13 @@ namespace Pelesys.Scheduling
             {
                 OnField3Changing(value);
                 ReportPropertyChanging("Field3");
-                _Field3 = StructuralObject.SetValidValue(value);
+                _Field3 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field3");
                 OnField3Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field3;
-        partial void OnField3Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field3;
+        partial void OnField3Changing(global::System.String value);
         partial void OnField3Changed();
     
         /// <summary>
@@ -6249,7 +6274,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field4
+        public global::System.String Field4
         {
             get
             {
@@ -6259,13 +6284,13 @@ namespace Pelesys.Scheduling
             {
                 OnField4Changing(value);
                 ReportPropertyChanging("Field4");
-                _Field4 = StructuralObject.SetValidValue(value);
+                _Field4 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field4");
                 OnField4Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field4;
-        partial void OnField4Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field4;
+        partial void OnField4Changing(global::System.String value);
         partial void OnField4Changed();
     
         /// <summary>
@@ -6273,7 +6298,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field5
+        public global::System.String Field5
         {
             get
             {
@@ -6283,13 +6308,13 @@ namespace Pelesys.Scheduling
             {
                 OnField5Changing(value);
                 ReportPropertyChanging("Field5");
-                _Field5 = StructuralObject.SetValidValue(value);
+                _Field5 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field5");
                 OnField5Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field5;
-        partial void OnField5Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field5;
+        partial void OnField5Changing(global::System.String value);
         partial void OnField5Changed();
     
         /// <summary>
@@ -6297,7 +6322,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field6
+        public global::System.String Field6
         {
             get
             {
@@ -6307,13 +6332,13 @@ namespace Pelesys.Scheduling
             {
                 OnField6Changing(value);
                 ReportPropertyChanging("Field6");
-                _Field6 = StructuralObject.SetValidValue(value);
+                _Field6 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field6");
                 OnField6Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field6;
-        partial void OnField6Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field6;
+        partial void OnField6Changing(global::System.String value);
         partial void OnField6Changed();
     
         /// <summary>
@@ -6321,7 +6346,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field7
+        public global::System.String Field7
         {
             get
             {
@@ -6331,13 +6356,13 @@ namespace Pelesys.Scheduling
             {
                 OnField7Changing(value);
                 ReportPropertyChanging("Field7");
-                _Field7 = StructuralObject.SetValidValue(value);
+                _Field7 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field7");
                 OnField7Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field7;
-        partial void OnField7Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field7;
+        partial void OnField7Changing(global::System.String value);
         partial void OnField7Changed();
     
         /// <summary>
@@ -6345,7 +6370,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field8
+        public global::System.String Field8
         {
             get
             {
@@ -6355,13 +6380,13 @@ namespace Pelesys.Scheduling
             {
                 OnField8Changing(value);
                 ReportPropertyChanging("Field8");
-                _Field8 = StructuralObject.SetValidValue(value);
+                _Field8 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field8");
                 OnField8Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field8;
-        partial void OnField8Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field8;
+        partial void OnField8Changing(global::System.String value);
         partial void OnField8Changed();
     
         /// <summary>
@@ -6369,7 +6394,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field9
+        public global::System.String Field9
         {
             get
             {
@@ -6379,13 +6404,13 @@ namespace Pelesys.Scheduling
             {
                 OnField9Changing(value);
                 ReportPropertyChanging("Field9");
-                _Field9 = StructuralObject.SetValidValue(value);
+                _Field9 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field9");
                 OnField9Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field9;
-        partial void OnField9Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field9;
+        partial void OnField9Changing(global::System.String value);
         partial void OnField9Changed();
     
         /// <summary>
@@ -6393,7 +6418,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field10
+        public global::System.String Field10
         {
             get
             {
@@ -6403,13 +6428,13 @@ namespace Pelesys.Scheduling
             {
                 OnField10Changing(value);
                 ReportPropertyChanging("Field10");
-                _Field10 = StructuralObject.SetValidValue(value);
+                _Field10 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field10");
                 OnField10Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field10;
-        partial void OnField10Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field10;
+        partial void OnField10Changing(global::System.String value);
         partial void OnField10Changed();
     
         /// <summary>
@@ -6417,7 +6442,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field11
+        public global::System.String Field11
         {
             get
             {
@@ -6427,13 +6452,13 @@ namespace Pelesys.Scheduling
             {
                 OnField11Changing(value);
                 ReportPropertyChanging("Field11");
-                _Field11 = StructuralObject.SetValidValue(value);
+                _Field11 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field11");
                 OnField11Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field11;
-        partial void OnField11Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field11;
+        partial void OnField11Changing(global::System.String value);
         partial void OnField11Changed();
     
         /// <summary>
@@ -6441,7 +6466,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field12
+        public global::System.String Field12
         {
             get
             {
@@ -6451,13 +6476,13 @@ namespace Pelesys.Scheduling
             {
                 OnField12Changing(value);
                 ReportPropertyChanging("Field12");
-                _Field12 = StructuralObject.SetValidValue(value);
+                _Field12 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field12");
                 OnField12Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field12;
-        partial void OnField12Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field12;
+        partial void OnField12Changing(global::System.String value);
         partial void OnField12Changed();
     
         /// <summary>
@@ -6465,7 +6490,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field13
+        public global::System.String Field13
         {
             get
             {
@@ -6475,13 +6500,13 @@ namespace Pelesys.Scheduling
             {
                 OnField13Changing(value);
                 ReportPropertyChanging("Field13");
-                _Field13 = StructuralObject.SetValidValue(value);
+                _Field13 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field13");
                 OnField13Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field13;
-        partial void OnField13Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field13;
+        partial void OnField13Changing(global::System.String value);
         partial void OnField13Changed();
     
         /// <summary>
@@ -6489,7 +6514,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field14
+        public global::System.String Field14
         {
             get
             {
@@ -6499,13 +6524,13 @@ namespace Pelesys.Scheduling
             {
                 OnField14Changing(value);
                 ReportPropertyChanging("Field14");
-                _Field14 = StructuralObject.SetValidValue(value);
+                _Field14 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field14");
                 OnField14Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field14;
-        partial void OnField14Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field14;
+        partial void OnField14Changing(global::System.String value);
         partial void OnField14Changed();
     
         /// <summary>
@@ -6513,7 +6538,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field15
+        public global::System.String Field15
         {
             get
             {
@@ -6523,13 +6548,13 @@ namespace Pelesys.Scheduling
             {
                 OnField15Changing(value);
                 ReportPropertyChanging("Field15");
-                _Field15 = StructuralObject.SetValidValue(value);
+                _Field15 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field15");
                 OnField15Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field15;
-        partial void OnField15Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field15;
+        partial void OnField15Changing(global::System.String value);
         partial void OnField15Changed();
     
         /// <summary>
@@ -6537,7 +6562,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field16
+        public global::System.String Field16
         {
             get
             {
@@ -6547,13 +6572,13 @@ namespace Pelesys.Scheduling
             {
                 OnField16Changing(value);
                 ReportPropertyChanging("Field16");
-                _Field16 = StructuralObject.SetValidValue(value);
+                _Field16 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field16");
                 OnField16Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field16;
-        partial void OnField16Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field16;
+        partial void OnField16Changing(global::System.String value);
         partial void OnField16Changed();
     
         /// <summary>
@@ -6561,7 +6586,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field17
+        public global::System.String Field17
         {
             get
             {
@@ -6571,13 +6596,13 @@ namespace Pelesys.Scheduling
             {
                 OnField17Changing(value);
                 ReportPropertyChanging("Field17");
-                _Field17 = StructuralObject.SetValidValue(value);
+                _Field17 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field17");
                 OnField17Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field17;
-        partial void OnField17Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field17;
+        partial void OnField17Changing(global::System.String value);
         partial void OnField17Changed();
     
         /// <summary>
@@ -6585,7 +6610,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field18
+        public global::System.String Field18
         {
             get
             {
@@ -6595,13 +6620,13 @@ namespace Pelesys.Scheduling
             {
                 OnField18Changing(value);
                 ReportPropertyChanging("Field18");
-                _Field18 = StructuralObject.SetValidValue(value);
+                _Field18 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field18");
                 OnField18Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field18;
-        partial void OnField18Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field18;
+        partial void OnField18Changing(global::System.String value);
         partial void OnField18Changed();
     
         /// <summary>
@@ -6609,7 +6634,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field19
+        public global::System.String Field19
         {
             get
             {
@@ -6619,13 +6644,13 @@ namespace Pelesys.Scheduling
             {
                 OnField19Changing(value);
                 ReportPropertyChanging("Field19");
-                _Field19 = StructuralObject.SetValidValue(value);
+                _Field19 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field19");
                 OnField19Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field19;
-        partial void OnField19Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field19;
+        partial void OnField19Changing(global::System.String value);
         partial void OnField19Changed();
     
         /// <summary>
@@ -6633,7 +6658,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field20
+        public global::System.String Field20
         {
             get
             {
@@ -6643,13 +6668,13 @@ namespace Pelesys.Scheduling
             {
                 OnField20Changing(value);
                 ReportPropertyChanging("Field20");
-                _Field20 = StructuralObject.SetValidValue(value);
+                _Field20 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field20");
                 OnField20Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field20;
-        partial void OnField20Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field20;
+        partial void OnField20Changing(global::System.String value);
         partial void OnField20Changed();
     
         /// <summary>
@@ -6657,7 +6682,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field21
+        public global::System.String Field21
         {
             get
             {
@@ -6667,13 +6692,13 @@ namespace Pelesys.Scheduling
             {
                 OnField21Changing(value);
                 ReportPropertyChanging("Field21");
-                _Field21 = StructuralObject.SetValidValue(value);
+                _Field21 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field21");
                 OnField21Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field21;
-        partial void OnField21Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field21;
+        partial void OnField21Changing(global::System.String value);
         partial void OnField21Changed();
     
         /// <summary>
@@ -6681,7 +6706,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field22
+        public global::System.String Field22
         {
             get
             {
@@ -6691,13 +6716,13 @@ namespace Pelesys.Scheduling
             {
                 OnField22Changing(value);
                 ReportPropertyChanging("Field22");
-                _Field22 = StructuralObject.SetValidValue(value);
+                _Field22 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field22");
                 OnField22Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field22;
-        partial void OnField22Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field22;
+        partial void OnField22Changing(global::System.String value);
         partial void OnField22Changed();
     
         /// <summary>
@@ -6705,7 +6730,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field23
+        public global::System.String Field23
         {
             get
             {
@@ -6715,13 +6740,13 @@ namespace Pelesys.Scheduling
             {
                 OnField23Changing(value);
                 ReportPropertyChanging("Field23");
-                _Field23 = StructuralObject.SetValidValue(value);
+                _Field23 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field23");
                 OnField23Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field23;
-        partial void OnField23Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field23;
+        partial void OnField23Changing(global::System.String value);
         partial void OnField23Changed();
     
         /// <summary>
@@ -6729,7 +6754,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field24
+        public global::System.String Field24
         {
             get
             {
@@ -6739,13 +6764,13 @@ namespace Pelesys.Scheduling
             {
                 OnField24Changing(value);
                 ReportPropertyChanging("Field24");
-                _Field24 = StructuralObject.SetValidValue(value);
+                _Field24 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field24");
                 OnField24Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field24;
-        partial void OnField24Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field24;
+        partial void OnField24Changing(global::System.String value);
         partial void OnField24Changed();
     
         /// <summary>
@@ -6753,7 +6778,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field25
+        public global::System.String Field25
         {
             get
             {
@@ -6763,13 +6788,13 @@ namespace Pelesys.Scheduling
             {
                 OnField25Changing(value);
                 ReportPropertyChanging("Field25");
-                _Field25 = StructuralObject.SetValidValue(value);
+                _Field25 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field25");
                 OnField25Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field25;
-        partial void OnField25Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field25;
+        partial void OnField25Changing(global::System.String value);
         partial void OnField25Changed();
     
         /// <summary>
@@ -6777,7 +6802,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field26
+        public global::System.String Field26
         {
             get
             {
@@ -6787,13 +6812,13 @@ namespace Pelesys.Scheduling
             {
                 OnField26Changing(value);
                 ReportPropertyChanging("Field26");
-                _Field26 = StructuralObject.SetValidValue(value);
+                _Field26 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field26");
                 OnField26Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field26;
-        partial void OnField26Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field26;
+        partial void OnField26Changing(global::System.String value);
         partial void OnField26Changed();
     
         /// <summary>
@@ -6801,7 +6826,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field27
+        public global::System.String Field27
         {
             get
             {
@@ -6811,13 +6836,13 @@ namespace Pelesys.Scheduling
             {
                 OnField27Changing(value);
                 ReportPropertyChanging("Field27");
-                _Field27 = StructuralObject.SetValidValue(value);
+                _Field27 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field27");
                 OnField27Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field27;
-        partial void OnField27Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field27;
+        partial void OnField27Changing(global::System.String value);
         partial void OnField27Changed();
     
         /// <summary>
@@ -6825,7 +6850,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field28
+        public global::System.String Field28
         {
             get
             {
@@ -6835,13 +6860,13 @@ namespace Pelesys.Scheduling
             {
                 OnField28Changing(value);
                 ReportPropertyChanging("Field28");
-                _Field28 = StructuralObject.SetValidValue(value);
+                _Field28 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field28");
                 OnField28Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field28;
-        partial void OnField28Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field28;
+        partial void OnField28Changing(global::System.String value);
         partial void OnField28Changed();
     
         /// <summary>
@@ -6849,7 +6874,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field29
+        public global::System.String Field29
         {
             get
             {
@@ -6859,13 +6884,13 @@ namespace Pelesys.Scheduling
             {
                 OnField29Changing(value);
                 ReportPropertyChanging("Field29");
-                _Field29 = StructuralObject.SetValidValue(value);
+                _Field29 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field29");
                 OnField29Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field29;
-        partial void OnField29Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field29;
+        partial void OnField29Changing(global::System.String value);
         partial void OnField29Changed();
     
         /// <summary>
@@ -6873,7 +6898,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field30
+        public global::System.String Field30
         {
             get
             {
@@ -6883,13 +6908,13 @@ namespace Pelesys.Scheduling
             {
                 OnField30Changing(value);
                 ReportPropertyChanging("Field30");
-                _Field30 = StructuralObject.SetValidValue(value);
+                _Field30 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field30");
                 OnField30Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field30;
-        partial void OnField30Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field30;
+        partial void OnField30Changing(global::System.String value);
         partial void OnField30Changed();
     
         /// <summary>
@@ -6897,7 +6922,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field31
+        public global::System.String Field31
         {
             get
             {
@@ -6907,13 +6932,13 @@ namespace Pelesys.Scheduling
             {
                 OnField31Changing(value);
                 ReportPropertyChanging("Field31");
-                _Field31 = StructuralObject.SetValidValue(value);
+                _Field31 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field31");
                 OnField31Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field31;
-        partial void OnField31Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field31;
+        partial void OnField31Changing(global::System.String value);
         partial void OnField31Changed();
     
         /// <summary>
@@ -6921,7 +6946,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field32
+        public global::System.String Field32
         {
             get
             {
@@ -6931,13 +6956,13 @@ namespace Pelesys.Scheduling
             {
                 OnField32Changing(value);
                 ReportPropertyChanging("Field32");
-                _Field32 = StructuralObject.SetValidValue(value);
+                _Field32 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field32");
                 OnField32Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field32;
-        partial void OnField32Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field32;
+        partial void OnField32Changing(global::System.String value);
         partial void OnField32Changed();
     
         /// <summary>
@@ -6945,7 +6970,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field33
+        public global::System.String Field33
         {
             get
             {
@@ -6955,13 +6980,13 @@ namespace Pelesys.Scheduling
             {
                 OnField33Changing(value);
                 ReportPropertyChanging("Field33");
-                _Field33 = StructuralObject.SetValidValue(value);
+                _Field33 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field33");
                 OnField33Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field33;
-        partial void OnField33Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field33;
+        partial void OnField33Changing(global::System.String value);
         partial void OnField33Changed();
     
         /// <summary>
@@ -6969,7 +6994,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field34
+        public global::System.String Field34
         {
             get
             {
@@ -6979,13 +7004,13 @@ namespace Pelesys.Scheduling
             {
                 OnField34Changing(value);
                 ReportPropertyChanging("Field34");
-                _Field34 = StructuralObject.SetValidValue(value);
+                _Field34 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field34");
                 OnField34Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field34;
-        partial void OnField34Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field34;
+        partial void OnField34Changing(global::System.String value);
         partial void OnField34Changed();
     
         /// <summary>
@@ -6993,7 +7018,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field35
+        public global::System.String Field35
         {
             get
             {
@@ -7003,13 +7028,13 @@ namespace Pelesys.Scheduling
             {
                 OnField35Changing(value);
                 ReportPropertyChanging("Field35");
-                _Field35 = StructuralObject.SetValidValue(value);
+                _Field35 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field35");
                 OnField35Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field35;
-        partial void OnField35Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field35;
+        partial void OnField35Changing(global::System.String value);
         partial void OnField35Changed();
     
         /// <summary>
@@ -7017,7 +7042,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field36
+        public global::System.String Field36
         {
             get
             {
@@ -7027,13 +7052,13 @@ namespace Pelesys.Scheduling
             {
                 OnField36Changing(value);
                 ReportPropertyChanging("Field36");
-                _Field36 = StructuralObject.SetValidValue(value);
+                _Field36 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field36");
                 OnField36Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field36;
-        partial void OnField36Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field36;
+        partial void OnField36Changing(global::System.String value);
         partial void OnField36Changed();
     
         /// <summary>
@@ -7041,7 +7066,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field37
+        public global::System.String Field37
         {
             get
             {
@@ -7051,13 +7076,13 @@ namespace Pelesys.Scheduling
             {
                 OnField37Changing(value);
                 ReportPropertyChanging("Field37");
-                _Field37 = StructuralObject.SetValidValue(value);
+                _Field37 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field37");
                 OnField37Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field37;
-        partial void OnField37Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field37;
+        partial void OnField37Changing(global::System.String value);
         partial void OnField37Changed();
     
         /// <summary>
@@ -7065,7 +7090,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field38
+        public global::System.String Field38
         {
             get
             {
@@ -7075,13 +7100,13 @@ namespace Pelesys.Scheduling
             {
                 OnField38Changing(value);
                 ReportPropertyChanging("Field38");
-                _Field38 = StructuralObject.SetValidValue(value);
+                _Field38 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field38");
                 OnField38Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field38;
-        partial void OnField38Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field38;
+        partial void OnField38Changing(global::System.String value);
         partial void OnField38Changed();
     
         /// <summary>
@@ -7089,7 +7114,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field39
+        public global::System.String Field39
         {
             get
             {
@@ -7099,13 +7124,13 @@ namespace Pelesys.Scheduling
             {
                 OnField39Changing(value);
                 ReportPropertyChanging("Field39");
-                _Field39 = StructuralObject.SetValidValue(value);
+                _Field39 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field39");
                 OnField39Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field39;
-        partial void OnField39Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field39;
+        partial void OnField39Changing(global::System.String value);
         partial void OnField39Changed();
     
         /// <summary>
@@ -7113,7 +7138,7 @@ namespace Pelesys.Scheduling
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Field40
+        public global::System.String Field40
         {
             get
             {
@@ -7123,13 +7148,13 @@ namespace Pelesys.Scheduling
             {
                 OnField40Changing(value);
                 ReportPropertyChanging("Field40");
-                _Field40 = StructuralObject.SetValidValue(value);
+                _Field40 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Field40");
                 OnField40Changed();
             }
         }
-        private Nullable<global::System.Int32> _Field40;
-        partial void OnField40Changing(Nullable<global::System.Int32> value);
+        private global::System.String _Field40;
+        partial void OnField40Changing(global::System.String value);
         partial void OnField40Changed();
 
         #endregion

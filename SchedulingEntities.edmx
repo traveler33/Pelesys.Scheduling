@@ -190,6 +190,7 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="DataListType" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DesignFormTab">
           <Key>
@@ -351,10 +352,10 @@
           <Key>
             <PropertyRef Name="ResourceId" />
           </Key>
-          <Property Name="ResourceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" />
           <Property Name="ResourceTypeID" Type="int" Nullable="false" />
-          <Property Name="HourlyRate" Type="int" />
+          <Property Name="HourlyRate" Type="decimal" Scale="2" />
           <Property Name="SerialNumber" Type="nvarchar" MaxLength="500" />
           <Property Name="OrganizationLocationID" Type="int" />
           <Property Name="WeeklyUsedHours" Type="int" />
@@ -362,46 +363,46 @@
           <Property Name="EventLimit" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="EventRestrictionID" Type="int" />
-          <Property Name="Field1" Type="int" />
-          <Property Name="Field2" Type="int" />
-          <Property Name="Field3" Type="int" />
-          <Property Name="Field4" Type="int" />
-          <Property Name="Field5" Type="int" />
-          <Property Name="Field6" Type="int" />
-          <Property Name="Field7" Type="int" />
-          <Property Name="Field8" Type="int" />
-          <Property Name="Field9" Type="int" />
-          <Property Name="Field10" Type="int" />
-          <Property Name="Field11" Type="int" />
-          <Property Name="Field12" Type="int" />
-          <Property Name="Field13" Type="int" />
-          <Property Name="Field14" Type="int" />
-          <Property Name="Field15" Type="int" />
-          <Property Name="Field16" Type="int" />
-          <Property Name="Field17" Type="int" />
-          <Property Name="Field18" Type="int" />
-          <Property Name="Field19" Type="int" />
-          <Property Name="Field20" Type="int" />
-          <Property Name="Field21" Type="int" />
-          <Property Name="Field22" Type="int" />
-          <Property Name="Field23" Type="int" />
-          <Property Name="Field24" Type="int" />
-          <Property Name="Field25" Type="int" />
-          <Property Name="Field26" Type="int" />
-          <Property Name="Field27" Type="int" />
-          <Property Name="Field28" Type="int" />
-          <Property Name="Field29" Type="int" />
-          <Property Name="Field30" Type="int" />
-          <Property Name="Field31" Type="int" />
-          <Property Name="Field32" Type="int" />
-          <Property Name="Field33" Type="int" />
-          <Property Name="Field34" Type="int" />
-          <Property Name="Field35" Type="int" />
-          <Property Name="Field36" Type="int" />
-          <Property Name="Field37" Type="int" />
-          <Property Name="Field38" Type="int" />
-          <Property Name="Field39" Type="int" />
-          <Property Name="Field40" Type="int" />
+          <Property Name="Field1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field3" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field4" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field5" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field6" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field7" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field8" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field9" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field10" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field11" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field12" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field13" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field14" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field15" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field16" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field17" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field18" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field19" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field20" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field21" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field22" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field23" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field24" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field25" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field26" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field27" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field28" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field29" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field30" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field31" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field32" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field33" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field34" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field35" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field36" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field37" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field38" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field39" Type="nvarchar" MaxLength="500" />
+          <Property Name="Field40" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="ResourceGroup">
           <Key>
@@ -520,7 +521,6 @@
           <EntitySet Name="FlightLines" EntityType="SchedulingEntities.FlightLine" />
           <EntitySet Name="Options" EntityType="SchedulingEntities.Option" />
           <EntitySet Name="Recurrencies" EntityType="SchedulingEntities.Recurrency" />
-          <EntitySet Name="Resources" EntityType="SchedulingEntities.Resource" />
           <EntitySet Name="ResourceGroups" EntityType="SchedulingEntities.ResourceGroup" />
           <EntitySet Name="ResourceGroupResources" EntityType="SchedulingEntities.ResourceGroupResource" />
           <EntitySet Name="ResourceInventories" EntityType="SchedulingEntities.ResourceInventory" />
@@ -531,6 +531,7 @@
           <EntitySet Name="TaskGroups" EntityType="SchedulingEntities.TaskGroup" />
           <EntitySet Name="TimeUnitTypes" EntityType="SchedulingEntities.TimeUnitType" />
           <EntitySet Name="DesignForms" EntityType="SchedulingEntities.DesignForm" />
+          <EntitySet Name="Resources" EntityType="SchedulingEntities.Resource" />
         </EntityContainer>
         <EntityType Name="OrganizationLocation">
           <Key>
@@ -662,6 +663,7 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="Int32" Name="UpdatedBy" />
           <Property Type="DateTime" Name="UpdatedDate" />
+          <Property Type="String" Name="DataListType" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DesignFormTab">
           <Key>
@@ -804,62 +806,6 @@
           <Property Type="DateTime" Name="ExceptionDate" />
           <Property Type="Int32" Name="EventID" />
         </EntityType>
-        <EntityType Name="Resource">
-          <Key>
-            <PropertyRef Name="ResourceId" />
-          </Key>
-          <Property Type="Int32" Name="ResourceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ResourceTypeID" Nullable="false" />
-          <Property Type="Int32" Name="HourlyRate" />
-          <Property Type="String" Name="SerialNumber" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="OrganizationLocationID" />
-          <Property Type="Int32" Name="WeeklyUsedHours" />
-          <Property Type="Int32" Name="RankID" />
-          <Property Type="Int32" Name="EventLimit" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="EventRestrictionID" />
-          <Property Type="Int32" Name="Field1" />
-          <Property Type="Int32" Name="Field2" />
-          <Property Type="Int32" Name="Field3" />
-          <Property Type="Int32" Name="Field4" />
-          <Property Type="Int32" Name="Field5" />
-          <Property Type="Int32" Name="Field6" />
-          <Property Type="Int32" Name="Field7" />
-          <Property Type="Int32" Name="Field8" />
-          <Property Type="Int32" Name="Field9" />
-          <Property Type="Int32" Name="Field10" />
-          <Property Type="Int32" Name="Field11" />
-          <Property Type="Int32" Name="Field12" />
-          <Property Type="Int32" Name="Field13" />
-          <Property Type="Int32" Name="Field14" />
-          <Property Type="Int32" Name="Field15" />
-          <Property Type="Int32" Name="Field16" />
-          <Property Type="Int32" Name="Field17" />
-          <Property Type="Int32" Name="Field18" />
-          <Property Type="Int32" Name="Field19" />
-          <Property Type="Int32" Name="Field20" />
-          <Property Type="Int32" Name="Field21" />
-          <Property Type="Int32" Name="Field22" />
-          <Property Type="Int32" Name="Field23" />
-          <Property Type="Int32" Name="Field24" />
-          <Property Type="Int32" Name="Field25" />
-          <Property Type="Int32" Name="Field26" />
-          <Property Type="Int32" Name="Field27" />
-          <Property Type="Int32" Name="Field28" />
-          <Property Type="Int32" Name="Field29" />
-          <Property Type="Int32" Name="Field30" />
-          <Property Type="Int32" Name="Field31" />
-          <Property Type="Int32" Name="Field32" />
-          <Property Type="Int32" Name="Field33" />
-          <Property Type="Int32" Name="Field34" />
-          <Property Type="Int32" Name="Field35" />
-          <Property Type="Int32" Name="Field36" />
-          <Property Type="Int32" Name="Field37" />
-          <Property Type="Int32" Name="Field38" />
-          <Property Type="Int32" Name="Field39" />
-          <Property Type="Int32" Name="Field40" />
-        </EntityType>
         <EntityType Name="ResourceGroup">
           <Key>
             <PropertyRef Name="ResourceGroupID" />
@@ -968,6 +914,62 @@
           <Property Type="Int32" Name="ApplicaitonID" />
           <Property Type="Int32" Name="Type" />
         </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Type="Int32" Name="ResourceId" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ResourceTypeID" Nullable="false" />
+          <Property Type="Decimal" Name="HourlyRate" Precision="18" Scale="2" />
+          <Property Type="String" Name="SerialNumber" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OrganizationLocationID" />
+          <Property Type="Int32" Name="WeeklyUsedHours" />
+          <Property Type="Int32" Name="RankID" />
+          <Property Type="Int32" Name="EventLimit" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EventRestrictionID" />
+          <Property Type="String" Name="Field1" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field3" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field4" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field5" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field6" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field7" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field8" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field9" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field10" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field11" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field12" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field13" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field14" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field15" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field16" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field17" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field18" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field19" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field20" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field21" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field22" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field23" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field24" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field25" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field26" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field27" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field28" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field29" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field30" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field31" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field32" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field33" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field34" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field35" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field36" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field37" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field38" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field39" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Field40" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1066,6 +1068,7 @@
           <EntitySetMapping Name="DesignFormFields">
             <EntityTypeMapping TypeName="SchedulingEntities.DesignFormField">
               <MappingFragment StoreEntitySet="DesignFormField">
+                <ScalarProperty Name="DataListType" ColumnName="DataListType" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
@@ -1260,63 +1263,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Resources">
-            <EntityTypeMapping TypeName="SchedulingEntities.Resource">
-              <MappingFragment StoreEntitySet="Resource">
-                <ScalarProperty Name="Field40" ColumnName="Field40" />
-                <ScalarProperty Name="Field39" ColumnName="Field39" />
-                <ScalarProperty Name="Field38" ColumnName="Field38" />
-                <ScalarProperty Name="Field37" ColumnName="Field37" />
-                <ScalarProperty Name="Field36" ColumnName="Field36" />
-                <ScalarProperty Name="Field35" ColumnName="Field35" />
-                <ScalarProperty Name="Field34" ColumnName="Field34" />
-                <ScalarProperty Name="Field33" ColumnName="Field33" />
-                <ScalarProperty Name="Field32" ColumnName="Field32" />
-                <ScalarProperty Name="Field31" ColumnName="Field31" />
-                <ScalarProperty Name="Field30" ColumnName="Field30" />
-                <ScalarProperty Name="Field29" ColumnName="Field29" />
-                <ScalarProperty Name="Field28" ColumnName="Field28" />
-                <ScalarProperty Name="Field27" ColumnName="Field27" />
-                <ScalarProperty Name="Field26" ColumnName="Field26" />
-                <ScalarProperty Name="Field25" ColumnName="Field25" />
-                <ScalarProperty Name="Field24" ColumnName="Field24" />
-                <ScalarProperty Name="Field23" ColumnName="Field23" />
-                <ScalarProperty Name="Field22" ColumnName="Field22" />
-                <ScalarProperty Name="Field21" ColumnName="Field21" />
-                <ScalarProperty Name="Field20" ColumnName="Field20" />
-                <ScalarProperty Name="Field19" ColumnName="Field19" />
-                <ScalarProperty Name="Field18" ColumnName="Field18" />
-                <ScalarProperty Name="Field17" ColumnName="Field17" />
-                <ScalarProperty Name="Field16" ColumnName="Field16" />
-                <ScalarProperty Name="Field15" ColumnName="Field15" />
-                <ScalarProperty Name="Field14" ColumnName="Field14" />
-                <ScalarProperty Name="Field13" ColumnName="Field13" />
-                <ScalarProperty Name="Field12" ColumnName="Field12" />
-                <ScalarProperty Name="Field11" ColumnName="Field11" />
-                <ScalarProperty Name="Field10" ColumnName="Field10" />
-                <ScalarProperty Name="Field9" ColumnName="Field9" />
-                <ScalarProperty Name="Field8" ColumnName="Field8" />
-                <ScalarProperty Name="Field7" ColumnName="Field7" />
-                <ScalarProperty Name="Field6" ColumnName="Field6" />
-                <ScalarProperty Name="Field5" ColumnName="Field5" />
-                <ScalarProperty Name="Field4" ColumnName="Field4" />
-                <ScalarProperty Name="Field3" ColumnName="Field3" />
-                <ScalarProperty Name="Field2" ColumnName="Field2" />
-                <ScalarProperty Name="Field1" ColumnName="Field1" />
-                <ScalarProperty Name="EventRestrictionID" ColumnName="EventRestrictionID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="EventLimit" ColumnName="EventLimit" />
-                <ScalarProperty Name="RankID" ColumnName="RankID" />
-                <ScalarProperty Name="WeeklyUsedHours" ColumnName="WeeklyUsedHours" />
-                <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
-                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
-                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
-                <ScalarProperty Name="ResourceTypeID" ColumnName="ResourceTypeID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ResourceGroups">
             <EntityTypeMapping TypeName="SchedulingEntities.ResourceGroup">
               <MappingFragment StoreEntitySet="ResourceGroup">
@@ -1435,6 +1381,63 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="SchedulingEntities.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="Field40" ColumnName="Field40" />
+                <ScalarProperty Name="Field39" ColumnName="Field39" />
+                <ScalarProperty Name="Field38" ColumnName="Field38" />
+                <ScalarProperty Name="Field37" ColumnName="Field37" />
+                <ScalarProperty Name="Field36" ColumnName="Field36" />
+                <ScalarProperty Name="Field35" ColumnName="Field35" />
+                <ScalarProperty Name="Field34" ColumnName="Field34" />
+                <ScalarProperty Name="Field33" ColumnName="Field33" />
+                <ScalarProperty Name="Field32" ColumnName="Field32" />
+                <ScalarProperty Name="Field31" ColumnName="Field31" />
+                <ScalarProperty Name="Field30" ColumnName="Field30" />
+                <ScalarProperty Name="Field29" ColumnName="Field29" />
+                <ScalarProperty Name="Field28" ColumnName="Field28" />
+                <ScalarProperty Name="Field27" ColumnName="Field27" />
+                <ScalarProperty Name="Field26" ColumnName="Field26" />
+                <ScalarProperty Name="Field25" ColumnName="Field25" />
+                <ScalarProperty Name="Field24" ColumnName="Field24" />
+                <ScalarProperty Name="Field23" ColumnName="Field23" />
+                <ScalarProperty Name="Field22" ColumnName="Field22" />
+                <ScalarProperty Name="Field21" ColumnName="Field21" />
+                <ScalarProperty Name="Field20" ColumnName="Field20" />
+                <ScalarProperty Name="Field19" ColumnName="Field19" />
+                <ScalarProperty Name="Field18" ColumnName="Field18" />
+                <ScalarProperty Name="Field17" ColumnName="Field17" />
+                <ScalarProperty Name="Field16" ColumnName="Field16" />
+                <ScalarProperty Name="Field15" ColumnName="Field15" />
+                <ScalarProperty Name="Field14" ColumnName="Field14" />
+                <ScalarProperty Name="Field13" ColumnName="Field13" />
+                <ScalarProperty Name="Field12" ColumnName="Field12" />
+                <ScalarProperty Name="Field11" ColumnName="Field11" />
+                <ScalarProperty Name="Field10" ColumnName="Field10" />
+                <ScalarProperty Name="Field9" ColumnName="Field9" />
+                <ScalarProperty Name="Field8" ColumnName="Field8" />
+                <ScalarProperty Name="Field7" ColumnName="Field7" />
+                <ScalarProperty Name="Field6" ColumnName="Field6" />
+                <ScalarProperty Name="Field5" ColumnName="Field5" />
+                <ScalarProperty Name="Field4" ColumnName="Field4" />
+                <ScalarProperty Name="Field3" ColumnName="Field3" />
+                <ScalarProperty Name="Field2" ColumnName="Field2" />
+                <ScalarProperty Name="Field1" ColumnName="Field1" />
+                <ScalarProperty Name="EventRestrictionID" ColumnName="EventRestrictionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventLimit" ColumnName="EventLimit" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="WeeklyUsedHours" ColumnName="WeeklyUsedHours" />
+                <ScalarProperty Name="OrganizationLocationID" ColumnName="OrganizationLocationID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="ResourceTypeID" ColumnName="ResourceTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1455,7 +1458,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="SchedulingEntities" ZoomLevel="94">
+      <Diagram Name="SchedulingEntities" ZoomLevel="57">
         <EntityTypeShape EntityType="SchedulingEntities.OrganizationLocation" Width="1.5" PointX="10.75" PointY="7.75" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="SchedulingEntities.DateFormat" Width="1.5" PointX="5.375" PointY="16.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="SchedulingEntities.Setting" Width="1.5" PointX="7.375" PointY="16.75" Height="1.7879850260416674" />
@@ -1468,14 +1471,13 @@
         <EntityTypeShape EntityType="SchedulingEntities.Document" Width="1.5" PointX="6.75" PointY="5.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SchedulingEntities.Event" Width="1.5" PointX="8.75" PointY="0.75" Height="2.7494921875000102" />
         <EntityTypeShape EntityType="SchedulingEntities.EventAttendee" Width="1.5" PointX="8.75" PointY="4.75" Height="1.5956835937500102" />
-        <EntityTypeShape EntityType="SchedulingEntities.EventResource" Width="1.5" PointX="6.75" PointY="8.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="SchedulingEntities.EventResource" Width="1.875" PointX="7.125" PointY="9.125" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="SchedulingEntities.EventType" Width="1.5" PointX="0.75" PointY="9.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="SchedulingEntities.EventTypeCategory" Width="1.5" PointX="10.75" PointY="0.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SchedulingEntities.FlightLeg" Width="1.5" PointX="10.75" PointY="3.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="SchedulingEntities.FlightLine" Width="1.5" PointX="6.75" PointY="11.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SchedulingEntities.Option" Width="1.5" PointX="8.75" PointY="11.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="SchedulingEntities.Recurrency" Width="1.5" PointX="10.75" PointY="11.75" Height="5.2494108072916674" />
-        <EntityTypeShape EntityType="SchedulingEntities.Resource" Width="1.5" PointX="0.75" PointY="12.75" Height="10.82615234375001" />
         <EntityTypeShape EntityType="SchedulingEntities.ResourceGroup" Width="1.5" PointX="12.75" PointY="0.75" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SchedulingEntities.ResourceGroupResource" Width="1.5" PointX="12.75" PointY="3.75" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SchedulingEntities.ResourceInventory" Width="1.5" PointX="12.75" PointY="11.75" Height="3.1340950520833246" />
@@ -1486,6 +1488,7 @@
         <EntityTypeShape EntityType="SchedulingEntities.TaskGroup" Width="1.5" PointX="14.75" PointY="3.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SchedulingEntities.TimeUnitType" Width="1.5" PointX="14.75" PointY="13.75" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SchedulingEntities.DesignForm" Width="1.5" PointX="13.375" PointY="16.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SchedulingEntities.Resource" Width="1.5" PointX="15.375" PointY="16.75" Height="10.82615234375001" />
       </Diagram>
     </Diagrams>
   </Designer>
