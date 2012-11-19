@@ -191,6 +191,7 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="DataListType" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="DesignFormTab">
           <Key>
@@ -509,7 +510,6 @@
           <EntitySet Name="Curricula" EntityType="SchedulingEntities.Curriculum" />
           <EntitySet Name="CurriculumCourses" EntityType="SchedulingEntities.CurriculumCourse" />
           <EntitySet Name="DesignFormDataLists" EntityType="SchedulingEntities.DesignFormDataList" />
-          <EntitySet Name="DesignFormFields" EntityType="SchedulingEntities.DesignFormField" />
           <EntitySet Name="DesignFormTabs" EntityType="SchedulingEntities.DesignFormTab" />
           <EntitySet Name="Documents" EntityType="SchedulingEntities.Document" />
           <EntitySet Name="Events" EntityType="SchedulingEntities.Event" />
@@ -532,6 +532,7 @@
           <EntitySet Name="TimeUnitTypes" EntityType="SchedulingEntities.TimeUnitType" />
           <EntitySet Name="DesignForms" EntityType="SchedulingEntities.DesignForm" />
           <EntitySet Name="Resources" EntityType="SchedulingEntities.Resource" />
+          <EntitySet Name="DesignFormFields" EntityType="SchedulingEntities.DesignFormField" />
         </EntityContainer>
         <EntityType Name="OrganizationLocation">
           <Key>
@@ -619,51 +620,6 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="Int32" Name="UpdatedBy" />
           <Property Type="DateTime" Name="UpdatedDate" />
-        </EntityType>
-        <EntityType Name="DesignFormField">
-          <Key>
-            <PropertyRef Name="FieldID" />
-          </Key>
-          <Property Type="Int32" Name="FormID" Nullable="false" />
-          <Property Type="Int32" Name="TabID" Nullable="false" />
-          <Property Type="Int32" Name="FieldID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Label" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ControlLeft" Nullable="false" />
-          <Property Type="Int32" Name="ControlTop" Nullable="false" />
-          <Property Type="Int32" Name="LabelLeft" Nullable="false" />
-          <Property Type="Int32" Name="LabelTop" Nullable="false" />
-          <Property Type="Int32" Name="Width" />
-          <Property Type="Int32" Name="Height" />
-          <Property Type="Int32" Name="ControlType" />
-          <Property Type="Boolean" Name="IsSearch" />
-          <Property Type="Boolean" Name="IsReadOnly" Nullable="false" />
-          <Property Type="Boolean" Name="IsVisible" Nullable="false" />
-          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
-          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
-          <Property Type="Boolean" Name="WithLabel" Nullable="false" />
-          <Property Type="String" Name="QueryStatement" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SkinID" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="IsLock" />
-          <Property Type="Boolean" Name="IsMandatory" />
-          <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="IsDataList" />
-          <Property Type="Int32" Name="DataListTypeID" />
-          <Property Type="String" Name="DefaultValue" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegularExpr" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ControlSize" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="HasDefault" />
-          <Property Type="Boolean" Name="CanEnlarge" />
-          <Property Type="Boolean" Name="IsCalendar" />
-          <Property Type="String" Name="DateFormat" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="NewWindow" />
-          <Property Type="String" Name="URL" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
-          <Property Type="Int32" Name="UpdatedBy" />
-          <Property Type="DateTime" Name="UpdatedDate" />
-          <Property Type="String" Name="DataListType" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DesignFormTab">
           <Key>
@@ -970,6 +926,52 @@
           <Property Type="String" Name="Field39" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Field40" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="DesignFormField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="Int32" Name="TabID" Nullable="false" />
+          <Property Type="Int32" Name="FieldID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Label" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ControlLeft" Nullable="false" />
+          <Property Type="Int32" Name="ControlTop" Nullable="false" />
+          <Property Type="Int32" Name="LabelLeft" Nullable="false" />
+          <Property Type="Int32" Name="LabelTop" Nullable="false" />
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Height" />
+          <Property Type="Int32" Name="ControlType" />
+          <Property Type="Boolean" Name="IsSearch" />
+          <Property Type="Boolean" Name="IsReadOnly" Nullable="false" />
+          <Property Type="Boolean" Name="IsVisible" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Boolean" Name="WithLabel" Nullable="false" />
+          <Property Type="String" Name="QueryStatement" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SkinID" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsLock" />
+          <Property Type="Boolean" Name="IsMandatory" />
+          <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDataList" />
+          <Property Type="Int32" Name="DataListTypeID" />
+          <Property Type="String" Name="DefaultValue" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegularExpr" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ControlSize" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HasDefault" />
+          <Property Type="Boolean" Name="CanEnlarge" />
+          <Property Type="Boolean" Name="IsCalendar" />
+          <Property Type="String" Name="DateFormat" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="NewWindow" />
+          <Property Type="String" Name="URL" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="UpdatedDate" />
+          <Property Type="String" Name="DataListType" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ImagePath" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1062,52 +1064,6 @@
                 <ScalarProperty Name="ValueField" ColumnName="ValueField" />
                 <ScalarProperty Name="DisplayField" ColumnName="DisplayField" />
                 <ScalarProperty Name="FormDataListID" ColumnName="FormDataListID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DesignFormFields">
-            <EntityTypeMapping TypeName="SchedulingEntities.DesignFormField">
-              <MappingFragment StoreEntitySet="DesignFormField">
-                <ScalarProperty Name="DataListType" ColumnName="DataListType" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="URL" ColumnName="URL" />
-                <ScalarProperty Name="NewWindow" ColumnName="NewWindow" />
-                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
-                <ScalarProperty Name="IsCalendar" ColumnName="IsCalendar" />
-                <ScalarProperty Name="CanEnlarge" ColumnName="CanEnlarge" />
-                <ScalarProperty Name="HasDefault" ColumnName="HasDefault" />
-                <ScalarProperty Name="ControlSize" ColumnName="ControlSize" />
-                <ScalarProperty Name="RegularExpr" ColumnName="RegularExpr" />
-                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
-                <ScalarProperty Name="DataListTypeID" ColumnName="DataListTypeID" />
-                <ScalarProperty Name="IsDataList" ColumnName="IsDataList" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
-                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
-                <ScalarProperty Name="SkinID" ColumnName="SkinID" />
-                <ScalarProperty Name="QueryStatement" ColumnName="QueryStatement" />
-                <ScalarProperty Name="WithLabel" ColumnName="WithLabel" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
-                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
-                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
-                <ScalarProperty Name="ControlType" ColumnName="ControlType" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="LabelTop" ColumnName="LabelTop" />
-                <ScalarProperty Name="LabelLeft" ColumnName="LabelLeft" />
-                <ScalarProperty Name="ControlTop" ColumnName="ControlTop" />
-                <ScalarProperty Name="ControlLeft" ColumnName="ControlLeft" />
-                <ScalarProperty Name="Label" ColumnName="Label" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
-                <ScalarProperty Name="TabID" ColumnName="TabID" />
-                <ScalarProperty Name="FormID" ColumnName="FormID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1438,6 +1394,53 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DesignFormFields">
+            <EntityTypeMapping TypeName="SchedulingEntities.DesignFormField">
+              <MappingFragment StoreEntitySet="DesignFormField">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="DataListType" ColumnName="DataListType" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="NewWindow" ColumnName="NewWindow" />
+                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+                <ScalarProperty Name="IsCalendar" ColumnName="IsCalendar" />
+                <ScalarProperty Name="CanEnlarge" ColumnName="CanEnlarge" />
+                <ScalarProperty Name="HasDefault" ColumnName="HasDefault" />
+                <ScalarProperty Name="ControlSize" ColumnName="ControlSize" />
+                <ScalarProperty Name="RegularExpr" ColumnName="RegularExpr" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="DataListTypeID" ColumnName="DataListTypeID" />
+                <ScalarProperty Name="IsDataList" ColumnName="IsDataList" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsMandatory" ColumnName="IsMandatory" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="SkinID" ColumnName="SkinID" />
+                <ScalarProperty Name="QueryStatement" ColumnName="QueryStatement" />
+                <ScalarProperty Name="WithLabel" ColumnName="WithLabel" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="ControlType" ColumnName="ControlType" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="LabelTop" ColumnName="LabelTop" />
+                <ScalarProperty Name="LabelLeft" ColumnName="LabelLeft" />
+                <ScalarProperty Name="ControlTop" ColumnName="ControlTop" />
+                <ScalarProperty Name="ControlLeft" ColumnName="ControlLeft" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="TabID" ColumnName="TabID" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1466,7 +1469,6 @@
         <EntityTypeShape EntityType="SchedulingEntities.Curriculum" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="SchedulingEntities.CurriculumCourse" Width="1.5" PointX="0.75" PointY="3.75" Height="4.2879036458333246" />
         <EntityTypeShape EntityType="SchedulingEntities.DesignFormDataList" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="SchedulingEntities.DesignFormField" Width="1.5" PointX="4.75" PointY="4.75" Height="8.51853515625001" />
         <EntityTypeShape EntityType="SchedulingEntities.DesignFormTab" Width="1.5" PointX="6.75" PointY="0.75" Height="4.0956022135416674" />
         <EntityTypeShape EntityType="SchedulingEntities.Document" Width="1.5" PointX="6.75" PointY="5.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="SchedulingEntities.Event" Width="1.5" PointX="8.75" PointY="0.75" Height="2.7494921875000102" />
@@ -1489,6 +1491,7 @@
         <EntityTypeShape EntityType="SchedulingEntities.TimeUnitType" Width="1.5" PointX="14.75" PointY="13.75" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="SchedulingEntities.DesignForm" Width="1.5" PointX="13.375" PointY="16.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="SchedulingEntities.Resource" Width="1.5" PointX="15.375" PointY="16.75" Height="10.82615234375001" />
+        <EntityTypeShape EntityType="SchedulingEntities.DesignFormField" Width="1.5" PointX="3.375" PointY="4.75" Height="8.9031380208333246" />
       </Diagram>
     </Diagrams>
   </Designer>

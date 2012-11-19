@@ -56,6 +56,11 @@ namespace Pelesys.Scheduling
             return null;
         }
 
+        public static List<DesignFormField> GetDataByFieldName( int eFormID, String  FieldName)
+        {
+            string eSQL = "Where  T.FormID=" + eFormID + " and T.Name='" + FieldName + "'";
+            return DesignFormField.LoadListWhere<DesignFormField>(eSQL);
+        }
 
         public static List<DesignFormField> GetDataBy(int eDesignFormTabID, int eFormID, int FieldID)
         {

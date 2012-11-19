@@ -181,22 +181,6 @@ namespace Pelesys.Scheduling
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DesignFormField> DesignFormFields
-        {
-            get
-            {
-                if ((_DesignFormFields == null))
-                {
-                    _DesignFormFields = base.CreateObjectSet<DesignFormField>("DesignFormFields");
-                }
-                return _DesignFormFields;
-            }
-        }
-        private ObjectSet<DesignFormField> _DesignFormFields;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<DesignFormTab> DesignFormTabs
         {
             get
@@ -545,6 +529,22 @@ namespace Pelesys.Scheduling
             }
         }
         private ObjectSet<Resource> _Resources;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DesignFormField> DesignFormFields
+        {
+            get
+            {
+                if ((_DesignFormFields == null))
+                {
+                    _DesignFormFields = base.CreateObjectSet<DesignFormField>("DesignFormFields");
+                }
+                return _DesignFormFields;
+            }
+        }
+        private ObjectSet<DesignFormField> _DesignFormFields;
 
         #endregion
         #region AddTo Methods
@@ -603,14 +603,6 @@ namespace Pelesys.Scheduling
         public void AddToDesignFormDataLists(DesignFormDataList designFormDataList)
         {
             base.AddObject("DesignFormDataLists", designFormDataList);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the DesignFormFields EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDesignFormFields(DesignFormField designFormField)
-        {
-            base.AddObject("DesignFormFields", designFormField);
         }
     
         /// <summary>
@@ -787,6 +779,14 @@ namespace Pelesys.Scheduling
         public void AddToResources(Resource resource)
         {
             base.AddObject("Resources", resource);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DesignFormFields EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDesignFormFields(DesignFormField designFormField)
+        {
+            base.AddObject("DesignFormFields", designFormField);
         }
 
         #endregion
@@ -3231,6 +3231,30 @@ namespace Pelesys.Scheduling
         private global::System.String _DataListType;
         partial void OnDataListTypeChanging(global::System.String value);
         partial void OnDataListTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ImagePath
+        {
+            get
+            {
+                return _ImagePath;
+            }
+            set
+            {
+                OnImagePathChanging(value);
+                ReportPropertyChanging("ImagePath");
+                _ImagePath = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ImagePath");
+                OnImagePathChanged();
+            }
+        }
+        private global::System.String _ImagePath;
+        partial void OnImagePathChanging(global::System.String value);
+        partial void OnImagePathChanged();
 
         #endregion
     
